@@ -27,7 +27,7 @@ script = ExtResource("1_v6fml")
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_qhqgy")
-frame_progress = 0.38387674
+frame_progress = 0.20490061
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dqkch")
@@ -37,33 +37,17 @@ position = Vector2(0, -8)
 target_position = Vector2(0, -8)
 hit_from_inside = true
 
-[node name="up_right" type="RayCast2D" parent="."]
-position = Vector2(4, -4)
-target_position = Vector2(8, -8)
-
-[node name="right" type="RayCast2D" parent="."]
-position = Vector2(8, 0)
-target_position = Vector2(8, 0)
-hit_from_inside = true
-
-[node name="down_right" type="RayCast2D" parent="."]
-position = Vector2(4, 4)
-target_position = Vector2(8, 8)
-
 [node name="down" type="RayCast2D" parent="."]
 position = Vector2(0, 8)
 target_position = Vector2(0, 8)
 hit_from_inside = true
-
-[node name="down_left" type="RayCast2D" parent="."]
-position = Vector2(-4, 4)
-target_position = Vector2(-8, 8)
 
 [node name="left" type="RayCast2D" parent="."]
 position = Vector2(-8, 0)
 target_position = Vector2(-8, 0)
 hit_from_inside = true
 
-[node name="up_left" type="RayCast2D" parent="."]
-position = Vector2(-4, -4)
-target_position = Vector2(-8, -8)
+[node name="right" type="RayCast2D" parent="."]
+position = Vector2(8, 0)
+target_position = Vector2(8, 0)
+hit_from_inside = true

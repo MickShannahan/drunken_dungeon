@@ -6,10 +6,10 @@
 [node name="MainScene" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_echbf")]
-position = Vector2(-156, -7)
+position = Vector2(-208, -16)
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_ibiss")]
-position = Vector2(-68, 81)
+position = Vector2(-120, 72)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(48, 116)
