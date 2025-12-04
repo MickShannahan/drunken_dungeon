@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://balqyl3r1p3fx"]
+
+[ext_resource type="PackedScene" uid="uid://c4ut5cvrpoxki" path="res://scenes/Player.tscn" id="1_echbf"]
+[ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Level.tscn" id="2_ibiss"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_echbf")]
+position = Vector2(-156, -7)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(0, -1)
+zoom = Vector2(4, 4)
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_ibiss")]
+position = Vector2(-68, 81)
