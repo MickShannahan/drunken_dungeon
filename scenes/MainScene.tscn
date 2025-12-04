@@ -8,9 +8,9 @@
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_echbf")]
 position = Vector2(-156, -7)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(0, -1)
-zoom = Vector2(4, 4)
-
 [node name="TileMapLayer" parent="." instance=ExtResource("2_ibiss")]
 position = Vector2(-68, 81)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(48, 116)
+zoom = Vector2(2, 2)
