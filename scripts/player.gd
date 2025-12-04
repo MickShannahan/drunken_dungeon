@@ -84,7 +84,9 @@ func _move_one_unit(dir: Vector2):
 	sprite_node_pos_tween.tween_property($CharacterSprite, "global_position", global_position, .15).set_trans(Tween.TRANS_SINE)
 	
 func _resolve_grid_space():
+	collision_layer = 1
 	await get_tree().create_timer(.25).timeout
+	collision_layer = 11
 	
 
 func _roll_dice():

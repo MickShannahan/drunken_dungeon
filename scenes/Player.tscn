@@ -18,19 +18,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(10, 10)
+[sub_resource type="CircleShape2D" id="CircleShape2D_v6fml"]
+radius = 6.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 1024
 script = ExtResource("1_v6fml")
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_qhqgy")
-frame_progress = 0.38387674
+frame_progress = 0.5748289
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_dqkch")
+shape = SubResource("CircleShape2D_v6fml")
 
 [node name="up" type="RayCast2D" parent="."]
 position = Vector2(0, -8)

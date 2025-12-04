@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://biaxio6oto3cp"]
+
+[ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="1_s6scd"]
+[ext_resource type="Script" uid="uid://clcswiys56prm" path="res://scripts/area_2d.gd" id="1_u187m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u187m"]
+atlas = ExtResource("1_s6scd")
+region = Rect2(656, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bp0e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u187m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6scd"]
+radius = 3.0
+
+[node name="Pickup" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_u187m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_3bp0e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s6scd")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
