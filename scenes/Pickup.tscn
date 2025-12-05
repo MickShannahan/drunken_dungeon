@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://biaxio6oto3cp"]
 
 [ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="1_s6scd"]
-[ext_resource type="Script" uid="uid://clcswiys56prm" path="res://scripts/area_2d.gd" id="1_u187m"]
+[ext_resource type="Script" uid="uid://clcswiys56prm" path="res://scripts/coin.gd" id="1_u187m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u187m"]
 atlas = ExtResource("1_s6scd")

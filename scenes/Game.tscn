@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://balqyl3r1p3fx"]
+
+[ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Level.tscn" id="1_s0nni"]
+[ext_resource type="Script" uid="uid://beolpfc45v6r3" path="res://scripts/turn_manager.gd" id="2_78awf"]
+[ext_resource type="Script" uid="uid://blnqk1cgtgn33" path="res://scripts/floor_manager.gd" id="3_cpr0p"]
+[ext_resource type="PackedScene" uid="uid://c4ut5cvrpoxki" path="res://scenes/Player.tscn" id="3_kiw3p"]
+[ext_resource type="Script" uid="uid://5i0bx1rj5e2i" path="res://scripts/roll.gd" id="3_s0nni"]
+[ext_resource type="Script" uid="uid://cnj0e4jctobpn" path="res://scripts/move.gd" id="4_aug50"]
+
+[sub_resource type="GDScript" id="GDScript_78awf"]
+script/source = "extends Node2D
+
+enum Phase {
+	BEGIN_TURN,
+	ROLL,
+	MOVING,
+	RESOLVING_TILE,
+	END_TURN,
+	BETWEEN_FLOORS
+}
+
+@export var current_phase : Phase = Phase.BEGIN_TURN
+var prev_phase : Phase
+
+func _ready() -> void:
+	print_debug(\"current phase: \", current_phase)
+
+func _process(delta: float) -> void:
+	_handle_input()
+	
+func _change_phase(new_phase: Phase):
+	prev_phase = current_phase
+	current_phase = new_phase
+
+func _handle_input():
+	match current_phase:
+		Phase.BEGIN_TURN:
+			_change_phase(Phase.ROLL)
+		Phase.ROLL:
+			
+"
+
+[sub_resource type="GDScript" id="GDScript_s0nni"]
+script/source = "extends Node2D
+
+@export var player : CharacterBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Game" type="Node2D"]
+script = SubResource("GDScript_78awf")
+current_phase = null
+
+[node name="FloorManager" type="Node" parent="."]
+script = ExtResource("3_cpr0p")
+
+[node name="TurnManager" type="Node" parent="."]
+script = ExtResource("2_78awf")
+
+[node name="Roll" type="Node" parent="TurnManager"]
+script = ExtResource("3_s0nni")
+
+[node name="Move" type="Node" parent="TurnManager"]
+script = ExtResource("4_aug50")
+
+[node name="World" type="Node" parent="."]
+
+[node name="TileMapLayer" parent="World" instance=ExtResource("1_s0nni")]
+position = Vector2(-120, 72)
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+position = Vector2(48, 116)
+zoom = Vector2(2, 2)
+
+[node name="PlayerController" type="Node2D" parent="World" node_paths=PackedStringArray("player")]
+position = Vector2(-80, 56)
+script = SubResource("GDScript_s0nni")
+player = NodePath("../CharacterBody2D")
+
+[node name="CharacterBody2D" parent="World" instance=ExtResource("3_kiw3p")]
+position = Vector2(-208, -16)
