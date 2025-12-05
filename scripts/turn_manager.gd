@@ -31,11 +31,12 @@ func _physics_process(delta: float) -> void:
 	
 func on_child_transition(phase: Phase, new_phase_name: String):
 	print_debug("child transition: ", new_phase_name)
-	
 	var new_phase: Phase = phases.get(new_phase_name.to_lower())
 	if !new_phase: return
 	
 	if current_phase:
+		prev_phase = current_phase
 		current_phase.Exit()
 		
+	current_phase = new_phase
 	new_phase.Enter()

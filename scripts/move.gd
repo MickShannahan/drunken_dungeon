@@ -23,6 +23,9 @@ func Enter():
 	print_debug("Enter Movement, ttm, tl, md, mt", tiles_to_move, tiles_left, movement_dir, movement_type)
 	
 func Update(delta: float):
+	if Input.is_action_just_pressed("ui_down"):
+		print_debug("updated test")
+	
 	if movement_type == MOVEMENT_TYPES.CARDINAL:
 		if Input.is_action_just_pressed("ui_up"):
 			_move_player(Vector2(0, -1))
