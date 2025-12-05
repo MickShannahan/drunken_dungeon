@@ -25,10 +25,10 @@ radius = 6.0
 collision_layer = 1024
 script = ExtResource("1_v6fml")
 
-[node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="." groups=["Player"]]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_qhqgy")
-frame_progress = 0.9347202
+frame_progress = 0.8725931
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v6fml")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://balqyl3r1p3fx"]
+[gd_scene load_steps=9 format=3 uid="uid://balqyl3r1p3fx"]
 
 [ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Level.tscn" id="1_s0nni"]
 [ext_resource type="Script" uid="uid://beolpfc45v6r3" path="res://scripts/turn_manager.gd" id="2_78awf"]
@@ -7,13 +7,27 @@
 [ext_resource type="Script" uid="uid://5i0bx1rj5e2i" path="res://scripts/roll.gd" id="3_s0nni"]
 [ext_resource type="Script" uid="uid://cnj0e4jctobpn" path="res://scripts/move.gd" id="4_aug50"]
 
+[sub_resource type="GDScript" id="GDScript_78awf"]
+script/source = "extends Node2D
+
+
+func _ready() -> void:
+	pass
+
+func _process(delta: float) -> void:
+	pass
+"
+
 [sub_resource type="GDScript" id="GDScript_s0nni"]
 script/source = "extends Node2D
+
+@export var player : CharacterBody2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -21,20 +35,19 @@ func _process(delta: float) -> void:
 "
 
 [node name="Game" type="Node2D"]
+script = SubResource("GDScript_78awf")
 
 [node name="FloorManager" type="Node" parent="."]
 script = ExtResource("3_cpr0p")
 
-[node name="TurnManager" type="Node" parent="." node_paths=PackedStringArray("initial_phase")]
+[node name="TurnManager" type="Node" parent="."]
 script = ExtResource("2_78awf")
-initial_phase = NodePath("Roll")
 
 [node name="Roll" type="Node" parent="TurnManager"]
 script = ExtResource("3_s0nni")
 
-[node name="Move" type="Node" parent="TurnManager" node_paths=PackedStringArray("player")]
+[node name="Move" type="Node" parent="TurnManager"]
 script = ExtResource("4_aug50")
-player = NodePath("../../World/Player")
 
 [node name="World" type="Node" parent="."]
 
@@ -45,9 +58,10 @@ position = Vector2(-120, 72)
 position = Vector2(48, 116)
 zoom = Vector2(2, 2)
 
-[node name="PlayerController" type="Node2D" parent="World"]
+[node name="PlayerController" type="Node2D" parent="World" node_paths=PackedStringArray("player")]
 position = Vector2(-80, 56)
 script = SubResource("GDScript_s0nni")
+player = NodePath("../CharacterBody2D")
 
-[node name="Player" parent="World" instance=ExtResource("3_kiw3p")]
+[node name="CharacterBody2D" parent="World" instance=ExtResource("3_kiw3p")]
 position = Vector2(-208, -16)

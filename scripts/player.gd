@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 
 const TILE_SIZE: Vector2 = Vector2(16, 16)
@@ -9,37 +10,12 @@ var is_moving: bool = false
 
 
 func _physics_process(delta: float) -> void:
-	_handle_input()
+	pass
 
 
-func _handle_input():
-	if is_moving: return
-
-	if Input.is_action_just_pressed("ui_accept"): # 🎲 dice roll
-		_roll_dice()
-
-	elif dice_rolled % 2 == 0: # even dice roll
-		if Input.is_action_just_pressed("ui_up"):
-			_move_in_dir(Vector2(0, -1), dice_rolled)
-		elif Input.is_action_just_pressed("ui_down"):
-			_move_in_dir(Vector2(0, 1), dice_rolled)
-		elif Input.is_action_just_pressed("ui_left"):
-			_move_in_dir(Vector2(-1, 0), dice_rolled)
-		elif Input.is_action_just_pressed("ui_right"):
-			_move_in_dir(Vector2(1, 0), dice_rolled)
-
-	elif dice_rolled % 2 != 0: # odd dice roll
-		if Input.is_action_just_pressed("ui_up") and Input.is_action_just_pressed("ui_right"): # ↗️
-			_move_in_dir(Vector2(1, -1), dice_rolled)
-		elif Input.is_action_just_pressed("ui_up") and Input.is_action_just_pressed("ui_left"): # ↖️
-			_move_in_dir(Vector2(-1, -1), dice_rolled)
-		elif Input.is_action_just_pressed("ui_down") and Input.is_action_just_pressed("ui_right"): # ↘️
-			_move_in_dir(Vector2(1, 1), dice_rolled)
-		elif Input.is_action_just_pressed("ui_down") and Input.is_action_just_pressed("ui_left"): # ↙️
-			_move_in_dir(Vector2(-1, 1), dice_rolled)
 			
 
-func _move_in_dir(dir: Vector2, dist: int):
+func move_in_dir(dir: Vector2, dist: int):
 	is_moving = true
 	var moving_dir = dir
 	for i in dist:
@@ -67,12 +43,12 @@ func _move_in_dir(dir: Vector2, dist: int):
 			moving_dir.y = -1
 			moving_dir.x = -1
 			
-		_move_one_unit(Vector2(moving_dir.x, moving_dir.y))
+		move_one_unit(Vector2(moving_dir.x, moving_dir.y))
 		await _resolve_grid_space()
 	
 	is_moving = false
 		
-func _move_one_unit(dir: Vector2):
+func move_one_unit(dir: Vector2):
 	global_position += dir * TILE_SIZE
 	
 #	required for tweening
