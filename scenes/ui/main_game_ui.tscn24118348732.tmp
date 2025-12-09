@@ -15,15 +15,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerUi" type="CenterContainer" parent="."]
+[node name="PlayerUi" type="Control" parent="."]
 z_index = 1000
 layout_mode = 1
-offset_right = 56.0
-offset_bottom = 56.0
+anchor_right = 0.077
+offset_left = -27.0
+offset_top = -28.0
+offset_right = 40.000008
+offset_bottom = 40.0
 script = ExtResource("1_i8egv")
+metadata/_edit_use_anchors_ = true
 
 [node name="DirectionArrows" type="GridContainer" parent="PlayerUi"]
-layout_mode = 2
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 size_flags_horizontal = 4
 columns = 3
 

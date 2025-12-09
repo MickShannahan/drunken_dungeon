@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://balqyl3r1p3fx"]
+[gd_scene load_steps=9 format=3 uid="uid://balqyl3r1p3fx"]
 
+[ext_resource type="PackedScene" uid="uid://ccagt5in31u65" path="res://scenes/ui/main_game_ui.tscn" id="1_kiw3p"]
 [ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Level.tscn" id="1_s0nni"]
 [ext_resource type="Script" uid="uid://beolpfc45v6r3" path="res://scripts/turn_manager.gd" id="2_78awf"]
 [ext_resource type="Script" uid="uid://blnqk1cgtgn33" path="res://scripts/floor_manager.gd" id="3_cpr0p"]
@@ -21,6 +22,13 @@ func _process(delta: float) -> void:
 "
 
 [node name="Game" type="Node2D"]
+
+[node name="MainGameUi" parent="." instance=ExtResource("1_kiw3p")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="FloorManager" type="Node" parent="."]
 script = ExtResource("3_cpr0p")
