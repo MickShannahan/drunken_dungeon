@@ -7,6 +7,7 @@ class_name RollPhase
 
 func Enter():
 	print("Entered Roll Phase")
+	GlobalUi.clear_player_arrows.emit()
 
 func Exit():
 	print("Exited Roll")

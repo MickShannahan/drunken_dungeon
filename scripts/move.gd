@@ -59,6 +59,7 @@ func Update(_delta: float):
 
 func _move_cardinal(dir: Vector2):
 	print("🚶 Cardinal:", dir, movement_type)
+	GlobalUi.clear_player_arrows.emit()
 	is_moving = true
 	movement_dir = dir
 	
@@ -96,6 +97,7 @@ func _move_cardinal(dir: Vector2):
 
 func _move_diagonal(dir: Vector2):
 	print("🚶 Diagonal:", dir)
+	GlobalUi.clear_player_arrows.emit()
 	is_moving = true
 	var moving_dir = dir
 	
@@ -134,7 +136,7 @@ func _end_movement_phase():
 
 func _emit_available_directions():
 	_get_movement_options()
-	directions_available.emit(available_directions)
+	GlobalUi.draw_player_arrows.emit(available_directions)
 	
 func _get_movement_options():
 	available_directions.clear()

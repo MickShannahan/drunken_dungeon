@@ -10,6 +10,8 @@ var visible_arrows: Array[String]
 func _ready() -> void:
 	_get_ui_node_arrows()
 	show_arrows(["up_left", "down", "down_right"])
+	GlobalUi.draw_player_arrows.connect(show_arrows)
+	GlobalUi.clear_player_arrows.connect(clear_arrows)
 
 func _physics_process(_delta: float) -> void:
 	var size_offset = get_rect().size / 2
@@ -25,7 +27,13 @@ func _get_ui_node_arrows():
 				ui_arrows[node.name] = arrow
 
 func show_arrows(arrow_directions: Array[String]):
+	clear_arrows()
 	for dir in arrow_directions:
 		var arrow = ui_arrows.get(dir)
 		if arrow:
 			arrow.visible = true
+
+func clear_arrows():
+	for arrow in ui_arrows.values():
+		arrow.visible = false
+		
