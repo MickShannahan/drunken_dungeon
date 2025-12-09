@@ -2,9 +2,9 @@ extends Node
 class_name TurnManager
 
 @export var initial_phase: Phase
-var phases : Dictionary = {}
+var phases: Dictionary = {}
 var current_phase: Phase
-var prev_phase : Phase
+var prev_phase: Phase
 
 var tiles_to_move: int = 0
 var movement_dir: Vector2
@@ -18,7 +18,7 @@ func _ready() -> void:
 	if initial_phase:
 		current_phase = initial_phase
 		current_phase.Enter()
-	print_debug('Phases Registered', phases)
+	print('Phases Registered', phases)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		current_phase.Physics_Update(delta)
 	
 func on_child_transition(phase: Phase, new_phase_name: String):
-	print_debug("child transition: ", new_phase_name)
+	print("child transition: ", new_phase_name)
 	var new_phase: Phase = phases.get(new_phase_name.to_lower())
 	if !new_phase: return
 	

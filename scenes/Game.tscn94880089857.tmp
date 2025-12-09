@@ -21,7 +21,7 @@ enum Phase {
 var prev_phase : Phase
 
 func _ready() -> void:
-	print_debug(\"current phase: \", current_phase)
+	print(\"current phase: \", current_phase)
 
 func _process(delta: float) -> void:
 	_handle_input()

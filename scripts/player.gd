@@ -8,22 +8,19 @@ var dice_rolled: int = 1
 var character_name: String = 'slate slabrock'
 var is_moving: bool = false
 
-@onready var up : RayCast2D = $up
-@onready var right : RayCast2D = $right
-@onready var down : RayCast2D = $down
-@onready var left : RayCast2D = $left
-@onready var up_right : RayCast2D = $up_right
-@onready var up_left : RayCast2D = $up_left
-@onready var down_right : RayCast2D = $down_right
-@onready var down_left : RayCast2D = $down_left
-
+@onready var up: RayCast2D = $up
+@onready var right: RayCast2D = $right
+@onready var down: RayCast2D = $down
+@onready var left: RayCast2D = $left
+@onready var up_right: RayCast2D = $up_right
+@onready var up_left: RayCast2D = $up_left
+@onready var down_right: RayCast2D = $down_right
+@onready var down_left: RayCast2D = $down_left
 
 
 func _physics_process(delta: float) -> void:
 	pass
 
-
-			
 
 func move_in_dir(dir: Vector2, dist: int):
 	is_moving = true
@@ -78,4 +75,4 @@ func resolve_grid_space():
 func _roll_dice():
 	var random = RandomNumberGenerator.new()
 	dice_rolled = random.randi_range(1, 8)
-	print_debug('🎲', dice_rolled)
+	print('🎲', dice_rolled)

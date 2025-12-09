@@ -6,10 +6,10 @@ class_name RollPhase
 @onready var turn_manager = get_parent()
 
 func Enter():
-	print_debug("Entered Roll Phase")
+	print("Entered Roll Phase")
 
 func Exit():
-	print_debug("Exited Roll")
+	print("Exited Roll")
 	
 func Update(delta: float):
 	if Input.is_action_just_pressed("ui_accept"):
@@ -19,8 +19,5 @@ func Update(delta: float):
 func _roll_dice():
 	var roll = randi_range(min_roll, max_roll)
 	turn_manager.tiles_to_move = roll
-	print_debug("🎲", roll)
+	print("🎲", roll)
 	Transitioned.emit(self, "Move")
-	
-	
-	
