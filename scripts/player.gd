@@ -8,6 +8,16 @@ var dice_rolled: int = 1
 var character_name: String = 'slate slabrock'
 var is_moving: bool = false
 
+@onready var up : RayCast2D = $up
+@onready var right : RayCast2D = $right
+@onready var down : RayCast2D = $down
+@onready var left : RayCast2D = $left
+@onready var up_right : RayCast2D = $up_right
+@onready var up_left : RayCast2D = $up_left
+@onready var down_right : RayCast2D = $down_right
+@onready var down_left : RayCast2D = $down_left
+
+
 
 func _physics_process(delta: float) -> void:
 	pass
@@ -44,7 +54,7 @@ func move_in_dir(dir: Vector2, dist: int):
 			moving_dir.x = -1
 			
 		move_one_unit(Vector2(moving_dir.x, moving_dir.y))
-		await _resolve_grid_space()
+		await resolve_grid_space()
 	
 	is_moving = false
 		
@@ -59,7 +69,7 @@ func move_one_unit(dir: Vector2):
 	sprite_node_pos_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	sprite_node_pos_tween.tween_property($CharacterSprite, "global_position", global_position, .15).set_trans(Tween.TRANS_SINE)
 	
-func _resolve_grid_space():
+func resolve_grid_space():
 	collision_layer = 1
 	await get_tree().create_timer(.25).timeout
 	collision_layer = 11
