@@ -60,6 +60,7 @@ func Update(_delta: float):
 func _move_cardinal(dir: Vector2):
 	print("🚶 Cardinal:", dir, movement_type)
 	GlobalUi.clear_player_arrows.emit()
+	GlobalUi.hide_player_roll_number.emit()
 	is_moving = true
 	movement_dir = dir
 	
@@ -98,6 +99,7 @@ func _move_cardinal(dir: Vector2):
 func _move_diagonal(dir: Vector2):
 	print("🚶 Diagonal:", dir)
 	GlobalUi.clear_player_arrows.emit()
+	GlobalUi.hide_player_roll_number.emit()
 	is_moving = true
 	var moving_dir = dir
 	
