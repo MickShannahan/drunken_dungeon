@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalUi="*res://scripts/globals/global_ui.gd"
+GlobalSceneController="*res://scripts/globals/scene_controller.gd"
 
 [rendering]
 
