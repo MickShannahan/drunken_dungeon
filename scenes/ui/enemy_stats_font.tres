@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://6olubv8codln"]
+
+[ext_resource type="FontFile" uid="uid://cwv437bplln1a" path="res://assets/fonts/Bytesized-Regular.ttf" id="1_gfils"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_gfils")
+font_color = Color(0.8117647, 0.7764706, 0.72156864, 1)

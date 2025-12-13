@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 GlobalUi="*res://scripts/globals/global_ui.gd"
 GlobalSceneController="*res://scripts/globals/scene_controller.gd"
 
+[global_group]
+
+Enemy=""
+Player=""
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

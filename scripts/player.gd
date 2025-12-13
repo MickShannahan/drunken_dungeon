@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 class_name Player
 
 
@@ -8,6 +8,10 @@ var dice_rolled: int = 1
 var character_name: String = 'slate slabrock'
 var is_moving: bool = false
 
+@export var health: int
+@export var attack_power: int
+@export var shield: int
+
 @onready var up: RayCast2D = $up
 @onready var right: RayCast2D = $right
 @onready var down: RayCast2D = $down
@@ -16,10 +20,6 @@ var is_moving: bool = false
 @onready var up_left: RayCast2D = $up_left
 @onready var down_right: RayCast2D = $down_right
 @onready var down_left: RayCast2D = $down_left
-
-
-func _physics_process(delta: float) -> void:
-	pass
 
 
 func move_in_dir(dir: Vector2, dist: int):
@@ -54,22 +54,29 @@ func move_in_dir(dir: Vector2, dist: int):
 		await resolve_grid_space()
 	
 	is_moving = false
-		
+
+func recieve_damage(damage: int):
+	health = max(0, health - damage)
+	print('🩸', health)
+
 func move_one_unit(dir: Vector2):
-	global_position += dir * TILE_SIZE
+	var target_position = global_position + dir * TILE_SIZE
 	
-#	required for tweening
-	$CharacterSprite.global_position -= dir * TILE_SIZE
 	if sprite_node_pos_tween:
-			sprite_node_pos_tween.kill()
+		sprite_node_pos_tween.kill()
 	sprite_node_pos_tween = create_tween()
 	sprite_node_pos_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	sprite_node_pos_tween.tween_property($CharacterSprite, "global_position", global_position, .15).set_trans(Tween.TRANS_SINE)
+	sprite_node_pos_tween.tween_property(self, "global_position", target_position, .15).set_trans(Tween.TRANS_SINE)
+	await sprite_node_pos_tween.finished
 	
 func resolve_grid_space():
-	collision_layer = 1
+	var enities = get_overlapping_areas()
+	print('on top of', enities)
+	for enity in enities:
+		if enity.is_in_group("Enemy"):
+			print('🤺', enity.entity_name)
+		enity.activate(self)
 	await get_tree().create_timer(.25).timeout
-	collision_layer = 11
 	
 
 func _roll_dice():

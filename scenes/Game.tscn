@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://balqyl3r1p3fx"]
+[gd_scene load_steps=10 format=3 uid="uid://balqyl3r1p3fx"]
 
 [ext_resource type="PackedScene" uid="uid://ccagt5in31u65" path="res://scenes/ui/main_game_ui.tscn" id="1_kiw3p"]
 [ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Level.tscn" id="1_s0nni"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c4ut5cvrpoxki" path="res://scenes/Player.tscn" id="3_kiw3p"]
 [ext_resource type="Script" uid="uid://5i0bx1rj5e2i" path="res://scripts/roll.gd" id="3_s0nni"]
 [ext_resource type="Script" uid="uid://cnj0e4jctobpn" path="res://scripts/move.gd" id="4_aug50"]
+[ext_resource type="PackedScene" uid="uid://bmxq38frpgfnq" path="res://scenes/enemy.tscn" id="7_400sg"]
 
 [sub_resource type="GDScript" id="GDScript_s0nni"]
 script/source = "extends Node2D
@@ -29,6 +30,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -40.0
+offset_right = -304.0
+offset_bottom = -40.0
 
 [node name="FloorManager" type="Node" parent="."]
 script = ExtResource("3_cpr0p")
@@ -50,6 +55,20 @@ player = NodePath("../../World/Player")
 
 [node name="TileMapLayer" parent="World/Level" instance=ExtResource("1_s0nni")]
 position = Vector2(-120, 72)
+
+[node name="Entities" type="Node2D" parent="World/Level"]
+
+[node name="Enemy" parent="World/Level/Entities" instance=ExtResource("7_400sg")]
+position = Vector2(-176, -16)
+
+[node name="Enemy2" parent="World/Level/Entities" instance=ExtResource("7_400sg")]
+position = Vector2(-112, 48)
+
+[node name="Enemy3" parent="World/Level/Entities" instance=ExtResource("7_400sg")]
+position = Vector2(-176, 32)
+
+[node name="Enemy4" parent="World/Level/Entities" instance=ExtResource("7_400sg")]
+position = Vector2(-128, 0)
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 position = Vector2(48, 116)

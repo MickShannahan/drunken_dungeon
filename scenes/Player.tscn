@@ -19,13 +19,14 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v6fml"]
-radius = 6.0
+radius = 8.0
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 1024
+[node name="Player" type="Area2D" groups=["Player"]]
 script = ExtResource("1_v6fml")
+health = 25
+attack_power = 5
 
-[node name="CharacterSprite" type="AnimatedSprite2D" parent="." groups=["Player"]]
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_qhqgy")
 frame_progress = 0.8725931
