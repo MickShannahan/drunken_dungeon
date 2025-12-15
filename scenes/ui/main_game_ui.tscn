@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccagt5in31u65"]
+[gd_scene load_steps=9 format=3 uid="uid://ccagt5in31u65"]
 
 [ext_resource type="Script" uid="uid://cwp15r64sl5nu" path="res://scripts/player_ui.gd" id="1_i8egv"]
 [ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="2_2lr7m"]
 [ext_resource type="LabelSettings" uid="uid://gekll6thf6cf" path="res://scenes/ui/main_game_ui_label.tres" id="3_l6kk8"]
+[ext_resource type="Texture2D" uid="uid://cbx7ej1knm7d6" path="res://assets/images/littleCharacter2.png" id="4_bb4rc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l6kk8"]
 atlas = ExtResource("2_2lr7m")
@@ -16,6 +17,8 @@ region = Rect2(736, 240, 16, 16)
 atlas = ExtResource("2_2lr7m")
 region = Rect2(768, 272, 16, 16)
 
+[sub_resource type="Theme" id="Theme_48pfk"]
+
 [node name="MainGameUi" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -26,7 +29,7 @@ grow_vertical = 2
 
 [node name="PlayerUi" type="CenterContainer" parent="."]
 z_index = 1000
-layout_mode = 1
+layout_mode = 0
 offset_right = 56.0
 offset_bottom = 56.0
 script = ExtResource("1_i8egv")
@@ -199,3 +202,26 @@ texture = SubResource("AtlasTexture_bb4rc")
 layout_mode = 2
 text = "5"
 label_settings = ExtResource("3_l6kk8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AsideContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -67.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_48pfk")
+
+[node name="CharacterStats" type="HBoxContainer" parent="CanvasLayer/AsideContainer"]
+layout_mode = 2
+
+[node name="Picture" type="TextureRect" parent="CanvasLayer/AsideContainer/CharacterStats"]
+layout_mode = 2
+texture = ExtResource("4_bb4rc")
+
+[node name="Label" type="Label" parent="CanvasLayer/AsideContainer/CharacterStats"]
+layout_mode = 2
+text = "Slate"

@@ -22,6 +22,7 @@ animations = [{
 radius = 8.0
 
 [node name="Player" type="Area2D" groups=["Player"]]
+collision_layer = 513
 script = ExtResource("1_v6fml")
 health = 25
 attack_power = 5

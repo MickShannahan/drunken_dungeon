@@ -24,6 +24,7 @@ GlobalSceneController="*res://scripts/globals/scene_controller.gd"
 
 Enemy=""
 Player=""
+Level=""
 
 [rendering]
 

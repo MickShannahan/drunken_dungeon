@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjgy1tlehictf"]
+
+[ext_resource type="Script" uid="uid://f1sw03phvscv" path="res://scenes/player_camera.gd" id="1_jcfh6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcfh6"]
+size = Vector2(608, 0)
+
+[node name="Camera2D" type="Camera2D"]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+script = ExtResource("1_jcfh6")
+
+[node name="Deadzone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+
+[node name="Shape" type="CollisionShape2D" parent="Deadzone"]
+shape = SubResource("RectangleShape2D_jcfh6")
+debug_color = Color(0.8329035, 0.35705438, 0.43468595, 0.16078432)

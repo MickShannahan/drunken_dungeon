@@ -76,7 +76,7 @@ func resolve_grid_space():
 		if enity.is_in_group("Enemy"):
 			print('🤺', enity.entity_name)
 		enity.activate(self)
-	await get_tree().create_timer(.25).timeout
+	await get_tree().create_timer(.15).timeout
 	
 
 func _roll_dice():
