@@ -88,9 +88,8 @@ func _move_cardinal(dir: Vector2):
 			break
 		
 		# Move one tile in current direction
-		tiles_left -= 1
-		await player.move_one_unit(movement_dir)
-		await player.resolve_grid_space()
+		var stop_movement = await move_player_one_unit(movement_dir)
+		if stop_movement: tiles_left = 0
 	
 	# If we've used all tiles, end the movement phase
 	if tiles_left <= 0:
@@ -125,11 +124,16 @@ func _move_diagonal(dir: Vector2):
 			moving_dir = directions.up_left
 		
 		# Move one tile in current direction
-		tiles_left -= 1
-		await player.move_one_unit(moving_dir)
-		await player.resolve_grid_space()
+		var stop_movement = await move_player_one_unit(moving_dir)
+		if stop_movement: tiles_left = 0
 	
 	_end_movement_phase()
+	
+func move_player_one_unit(moving_dir: Vector2):
+	tiles_left -= 1
+	await player.move_one_unit(moving_dir)
+	var stop_movement = await player.resolve_grid_space()
+	return stop_movement
 	
 func _end_movement_phase():
 	print("movement over")

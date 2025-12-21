@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=4 uid="uid://bqvmux4224t1m"]
+
+[ext_resource type="Script" uid="uid://2ffwxc308h1k" path="res://scenes/levels/level.gd" id="1_ibugp"]
+[ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Level.tscn" id="1_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://bmxq38frpgfnq" path="res://scenes/enemy.tscn" id="2_ibugp"]
+[ext_resource type="PackedScene" uid="uid://cb7d57ae8742d" path="res://scenes/coin.tscn" id="5_qsp8v"]
+[ext_resource type="PackedScene" uid="uid://b82wmh8b6abpn" path="res://scenes/ground_spikes.tscn" id="6_nt80m"]
+[ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="7_8qukl"]
+[ext_resource type="Script" uid="uid://bqlqbc6wmyro4" path="res://scenes/levels/exit.gd" id="8_3p04p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsp8v"]
+atlas = ExtResource("7_8qukl")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt80m"]
+atlas = ExtResource("7_8qukl")
+region = Rect2(49, 97, 14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brxtv"]
+size = Vector2(12, 12)
+
+[node name="Level" type="Node2D" groups=["Level"]]
+script = ExtResource("1_ibugp")
+metadata/_custom_type_script = "uid://2ffwxc308h1k"
+
+[node name="TileMapLayer" parent="." instance=ExtResource("1_qpwj6")]
+position = Vector2(-120, 72)
+tile_map_data = PackedByteArray("AAD5/wEAAAAKABEAAAD5/wIAAAAKABEAAAD5/wMAAAAKABEAAAD5/wQAAAAKABEAAAD5/wUAAAAKABEAAAAHAAUAAAAKABEAAAAJAAIAAAAKABEAAAARAAIAAAAKABEAAAAKAAIAAAAKABEAAAALAAIAAAAKABEAAAAOAAIAAAAKABEAAAAPAAIAAAAKABEAAAAQAAIAAAAKABEAAAAJAAsAAAAKABEAAAAIAAsAAAAKABEAAAD6/wEAAAAKABEAAAD7/wEAAAAKABEAAAD8/wEAAAAKABEAAAD9/wEAAAAKABEAAAD+/wEAAAAKABEAAAD//wEAAAAKABEAAAAAAAEAAAAKABEAAAABAAEAAAAKABEAAAACAAEAAAAKABEAAAADAAEAAAAKABEAAAAEAAEAAAAKABEAAAAFAAEAAAAKABEAAAAGAAEAAAAKABEAAAAHAAEAAAAKABEAAAD5/wYAAAAKABEAAAD5/wcAAAAKABEAAAD5/wgAAAAKABEAAAD5/wkAAAAKABEAAAD5/woAAAAKABEAAAAHAAIAAAAKABEAAAAHAAMAAAAKABEAAAAHAAQAAAAKABEAAAAHAAYAAAAKABEAAAAHAAcAAAAKABEAAAAHAAgAAAAKABEAAAAHAAkAAAAKABEAAAAHAAoAAAAKABEAAAD5/wsAAAAKABEAAAD6/wsAAAAKABEAAAD7/wsAAAAKABEAAAD8/wsAAAAKABEAAAD9/wsAAAAKABEAAAAHAAsAAAAKABEAAAAGAAsAAAAKABEAAAAFAAsAAAAKABEAAAD6/wwAAAAKABEAAAD6/w0AAAAKABEAAAD6/w4AAAAKABEAAAD6/w8AAAAKABEAAAD6/xAAAAAKABEAAAD6/xEAAAAKABEAAAD6/xIAAAAKABEAAAD6/xMAAAAKABEAAAD6/xQAAAAKABEAAAAGABQAAAAKABEAAAD7/xQAAAAKABEAAAD8/xQAAAAKABEAAAD9/xQAAAAKABEAAAD+/xQAAAAKABEAAAD//xQAAAAKABEAAAAAABQAAAAKABEAAAABABQAAAAKABEAAAACABQAAAAKABEAAAADABQAAAAKABEAAAAEABQAAAAKABEAAAAFABQAAAAKABEAAAAIAAIAAAAKABEAAAAMAAIAAAAKABEAAAANAAIAAAAKABEAAAASAAIAAAAKABEAAAATAAIAAAAKABEAAAAUAAIAAAAKABEAAAAVAAIAAAAKABEAAAAVAAMAAAAKABEAAAAVAAQAAAAKABEAAAAVAAUAAAAKABEAAAAVAAYAAAAKABEAAAAVAAcAAAAKABEAAAAVAAgAAAAKABEAAAAVAAkAAAAKABEAAAAVAAoAAAAKABEAAAAVAAsAAAAKABEAAAAVAAwAAAAKABEAAAAVAA0AAAAKABEAAAAVAA4AAAAKABEAAAAVAA8AAAAKABEAAAAVABAAAAAKABEAAAAVABEAAAAKABEAAAAVABIAAAAKABEAAAAVABMAAAAKABEAAAAVABQAAAAKABEAAAAUABQAAAAKABEAAAATABQAAAAKABEAAAASABQAAAAKABEAAAARABQAAAAKABEAAAAQABQAAAAKABEAAAAPABQAAAAKABEAAAAOABQAAAAKABEAAAANABQAAAAKABEAAAAMABQAAAAKABEAAAALABQAAAAKABEAAAAKABQAAAAKABEAAAAJABQAAAAKABEAAAAIABQAAAAKABEAAAAHABQAAAAKABEAAAAFAAwAAAAKABEAAAAGAAwAAAAKABEAAAAHAAwAAAAKABEAAAD9/wwAAAAKABEAAAD8/wwAAAAKABEAAAD7/wwAAAAKABEAAAAJAAwAAAAKABEAAAAIAAwAAAAKABEAAAA=")
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Entities" instance=ExtResource("2_ibugp")]
+position = Vector2(-80, 256)
+
+[node name="Enemy2" parent="Entities" instance=ExtResource("2_ibugp")]
+position = Vector2(64, 336)
+
+[node name="Enemy3" parent="Entities" instance=ExtResource("2_ibugp")]
+position = Vector2(-160, 352)
+
+[node name="Enemy4" parent="Entities" instance=ExtResource("2_ibugp")]
+position = Vector2(96, 352)
+
+[node name="GroundSpikes" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-144, 256)
+
+[node name="GroundSpikes2" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-144, 272)
+
+[node name="GroundSpikes3" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-128, 272)
+
+[node name="GroundSpikes4" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-128, 256)
+
+[node name="Coin" parent="Entities/GroundSpikes4" instance=ExtResource("5_qsp8v")]
+
+[node name="GroundSpikes" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(64, 16)
+
+[node name="GroundSpikes2" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(64, 0)
+
+[node name="GroundSpikes3" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(80, 16)
+
+[node name="GroundSpikes4" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(80, 0)
+
+[node name="GroundSpikes5" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(144, -128)
+
+[node name="GroundSpikes6" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(160, -128)
+
+[node name="GroundSpikes7" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(176, -128)
+
+[node name="GroundSpikes8" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(144, -112)
+
+[node name="GroundSpikes9" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(144, -96)
+
+[node name="GroundSpikes10" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(336, -128)
+
+[node name="GroundSpikes11" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(320, -128)
+
+[node name="GroundSpikes12" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(304, -128)
+
+[node name="GroundSpikes13" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(336, -112)
+
+[node name="GroundSpikes14" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
+position = Vector2(336, -96)
+
+[node name="Coin2" parent="Entities/GroundSpikes4" instance=ExtResource("5_qsp8v")]
+position = Vector2(256, 0)
+
+[node name="Coin3" parent="Entities/GroundSpikes4" instance=ExtResource("5_qsp8v")]
+position = Vector2(272, 0)
+
+[node name="Coin2" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-64, 192)
+
+[node name="Coin3" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-48, 320)
+
+[node name="Coin4" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(96, 256)
+
+[node name="Coin5" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(112, 256)
+
+[node name="Enemy5" parent="Entities" instance=ExtResource("2_ibugp")]
+position = Vector2(-176, 208)
+
+[node name="Enemy6" parent="Entities" instance=ExtResource("2_ibugp")]
+position = Vector2(64, 208)
+
+[node name="LevelDoors" type="Node2D" parent="."]
+
+[node name="Entrance" type="Sprite2D" parent="LevelDoors"]
+position = Vector2(-208, 112)
+texture = SubResource("AtlasTexture_qsp8v")
+
+[node name="Exit" type="Area2D" parent="LevelDoors" groups=["ExitDoor"]]
+position = Vector2(112, 128)
+script = ExtResource("8_3p04p")
+
+[node name="Stairs" type="Sprite2D" parent="LevelDoors/Exit"]
+texture = SubResource("AtlasTexture_nt80m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelDoors/Exit"]
+shape = SubResource("RectangleShape2D_brxtv")

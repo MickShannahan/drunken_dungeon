@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqw1d07htiwtf"]
+
+[ext_resource type="Script" uid="uid://bqlqbc6wmyro4" path="res://scenes/levels/exit.gd" id="1_uyw7u"]
+[ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="2_l5n14"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dga24"]
+atlas = ExtResource("2_l5n14")
+region = Rect2(49, 97, 14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxy0u"]
+size = Vector2(12, 12)
+
+[node name="Exit" type="Area2D" groups=["ExitDoor"]]
+script = ExtResource("1_uyw7u")
+
+[node name="Stairs" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_dga24")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qxy0u")

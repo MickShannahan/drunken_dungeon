@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://balqyl3r1p3fx"]
+[gd_scene load_steps=10 format=3 uid="uid://balqyl3r1p3fx"]
 
 [ext_resource type="PackedScene" uid="uid://ccagt5in31u65" path="res://scenes/ui/main_game_ui.tscn" id="1_kiw3p"]
 [ext_resource type="Script" uid="uid://beolpfc45v6r3" path="res://scripts/turn_manager.gd" id="2_78awf"]
+[ext_resource type="Script" uid="uid://blnqk1cgtgn33" path="res://scripts/floor_controller.gd" id="3_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://c4ut5cvrpoxki" path="res://scenes/Player.tscn" id="3_kiw3p"]
 [ext_resource type="Script" uid="uid://5i0bx1rj5e2i" path="res://scripts/roll.gd" id="3_s0nni"]
 [ext_resource type="Script" uid="uid://cnj0e4jctobpn" path="res://scripts/move.gd" id="4_aug50"]
@@ -25,6 +26,9 @@ func _process(delta: float) -> void:
 
 [node name="MainGameUi" parent="." instance=ExtResource("1_kiw3p")]
 
+[node name="FloorManager" type="Node" parent="."]
+script = ExtResource("3_cpr0p")
+
 [node name="TurnManager" type="Node" parent="." node_paths=PackedStringArray("initial_phase")]
 script = ExtResource("2_78awf")
 initial_phase = NodePath("Roll")
@@ -40,8 +44,8 @@ player = NodePath("../../World/Player")
 
 [node name="Level" parent="World" instance=ExtResource("6_400sg")]
 
-[node name="Camera2D" parent="World" groups=["Camera"] instance=ExtResource("8_g4kob")]
-position = Vector2(48, -32)
+[node name="Camera2D" parent="World" instance=ExtResource("8_g4kob")]
+position = Vector2(48, 116)
 
 [node name="PlayerController" type="Node2D" parent="World"]
 position = Vector2(-80, 56)

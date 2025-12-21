@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=4 uid="uid://dpiq84u6v4ak7"]
+
+[ext_resource type="Script" uid="uid://2ffwxc308h1k" path="res://scenes/levels/level.gd" id="1_dga24"]
+[ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Level.tscn" id="1_sk5k4"]
+[ext_resource type="PackedScene" uid="uid://bmxq38frpgfnq" path="res://scenes/enemy.tscn" id="2_oc4kc"]
+[ext_resource type="PackedScene" uid="uid://bqvmux4224t1m" path="res://scenes/levels/level_2.tscn" id="2_qxy0u"]
+[ext_resource type="PackedScene" uid="uid://dw4e2u2pw7gx" path="res://scenes/door.tscn" id="3_s8va5"]
+[ext_resource type="PackedScene" uid="uid://daxeqnv5vuq70" path="res://scenes/door_key.tscn" id="4_dga24"]
+[ext_resource type="PackedScene" uid="uid://cb7d57ae8742d" path="res://scenes/coin.tscn" id="5_qxy0u"]
+[ext_resource type="PackedScene" uid="uid://b82wmh8b6abpn" path="res://scenes/ground_spikes.tscn" id="6_excbq"]
+[ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="7_oc4kc"]
+[ext_resource type="PackedScene" uid="uid://bqw1d07htiwtf" path="res://scenes/exit.tscn" id="10_qxy0u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8va5"]
+atlas = ExtResource("7_oc4kc")
+region = Rect2(32, 96, 16, 16)
+
+[node name="Level" type="Node2D" groups=["Level"]]
+script = ExtResource("1_dga24")
+exit_to_floor = ExtResource("2_qxy0u")
+
+[node name="TileMapLayer" parent="." instance=ExtResource("1_sk5k4")]
+position = Vector2(-120, 72)
+tile_map_data = PackedByteArray("AAD6//n/AAAKABEAAAD7//n/AAAKABEAAAD8//n/AAAKABEAAAD9//n/AAAKABEAAAD+//n/AAAKABEAAAD///n/AAAKABEAAAAAAPn/AAAKABEAAAABAPn/AAAKABEAAAACAPn/AAAKABEAAAADAPn/AAAKABEAAAAEAPn/AAAKABEAAAAFAPn/AAAKABEAAAAGAPn/AAAKABEAAAAHAPn/AAAKABEAAAAIAPn/AAAKABEAAAD5//n/AAAKABEAAAD5//r/AAAKABEAAAD5//v/AAAKABEAAAD5//z/AAAKABEAAAD5//3/AAAKABEAAAD5//7/AAAKABEAAAD5////AAAKABEAAAD5/wAAAAAKABEAAAD5/wEAAAAKABEAAAD5/wIAAAAKABEAAAD5/wMAAAAKABEAAAD5/wQAAAAKABEAAAD5/wUAAAAKABEAAAD6/wUAAAAKABEAAAD7/wUAAAAKABEAAAD8/wUAAAAKABEAAAD9/wUAAAAKABEAAAD+/wUAAAAKABEAAAD//wUAAAAKABEAAAAAAAUAAAAKABEAAAAIAAUAAAAKABEAAAAIAPr/AAAKABEAAAAIAPv/AAAKABEAAAAIAPz/AAAKABEAAAAJAPz/AAAKABEAAAAKAPz/AAAKABEAAAALAPz/AAAKABEAAAAIAP//AAAKABEAAAAJAP//AAAKABEAAAAJAAAAAAAKABEAAAAJAAEAAAAKABEAAAAJAAIAAAAKABEAAAAJAAMAAAAKABEAAAAJAAQAAAAKABEAAAAJAAUAAAAKABEAAAALAPv/AAAKABEAAAALAPr/AAAKABEAAAAQAPr/AAAKABEAAAAMAPr/AAAKABEAAAANAPr/AAAKABEAAAAOAPr/AAAKABEAAAAPAPr/AAAKABEAAAARAPr/AAAKABEAAAARAPv/AAAKABEAAAARAPz/AAAKABEAAAARAP3/AAAKABEAAAARAP7/AAAKABEAAAARAP//AAAKABEAAAARAAAAAAAKABEAAAARAAEAAAAKABEAAAARAAIAAAAKABEAAAAKAAIAAAAKABEAAAALAAIAAAAKABEAAAAOAAIAAAAKABEAAAAPAAIAAAAKABEAAAAQAAIAAAAKABEAAAALAAMAAAAKABEAAAALAAQAAAAKABEAAAAOAAMAAAAKABEAAAAOAAQAAAAKABEAAAAKAAUAAAAKABEAAAAOAAUAAAAKABEAAAAPAAUAAAAKABEAAAAQAAUAAAAKABEAAAARAAUAAAAKABEAAAASAAUAAAAKABEAAAAIAAYAAAAKABEAAAAIAAcAAAAKABEAAAAIAAgAAAAKABEAAAAIAAkAAAAKABEAAAAIAAoAAAAKABEAAAATAAoAAAAKABEAAAATAAkAAAAKABEAAAATAAYAAAAKABEAAAATAAUAAAAKABEAAAATAAcAAAAKABEAAAATAAgAAAAKABEAAAATAAsAAAAKABEAAAASAAsAAAAKABEAAAARAAsAAAAKABEAAAAQAAsAAAAKABEAAAAPAAsAAAAKABEAAAAOAAsAAAAKABEAAAANAAsAAAAKABEAAAAMAAsAAAAKABEAAAALAAsAAAAKABEAAAAKAAsAAAAKABEAAAAJAAsAAAAKABEAAAAIAAsAAAAKABEAAAALAAgAAAAKABEAAAAQAAgAAAAKABEAAAD6/wIAAAAKABEAAAD7/wIAAAAKABEAAAD8/wIAAAAKABEAAAAAAAYAAAAKABEAAAAAAAcAAAAKABEAAAAAAAgAAAAKABEAAAAAAAkAAAAKABEAAAAAAAoAAAAKABEAAAAAAA8AAAAKABEAAAAAABAAAAAKABEAAAAAABEAAAAKABEAAAAKAAwAAAAKABEAAAAKAA0AAAAKABEAAAAKAA4AAAAKABEAAAAKAA8AAAAKABEAAAAKABAAAAAKABEAAAAKABEAAAAKABEAAAAKABIAAAAKABEAAAAJABIAAAAKABEAAAAIABIAAAAKABEAAAAHABIAAAAKABEAAAAGABIAAAAKABEAAAAFABIAAAAKABEAAAAEABIAAAAKABEAAAADABIAAAAKABEAAAACABIAAAAKABEAAAABABIAAAAKABEAAAAAABIAAAAKABEAAAD//wkAAAAKABEAAAD+/wkAAAAKABEAAAD9/wkAAAAKABEAAAD8/wkAAAAKABEAAAD7/wkAAAAKABEAAAD6/wkAAAAKABEAAAD6/xAAAAAKABEAAAD7/xAAAAAKABEAAAD8/xAAAAAKABEAAAD9/xAAAAAKABEAAAD+/xAAAAAKABEAAAD//xAAAAAKABEAAAAAAAsAAAAKABEAAAAAAA4AAAAKABEAAAD5/wkAAAAKABEAAAD5/woAAAAKABEAAAD5/wsAAAAKABEAAAD5/wwAAAAKABEAAAD5/w0AAAAKABEAAAD5/w4AAAAKABEAAAD5/w8AAAAKABEAAAD5/xAAAAAKABEAAAA=")
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Entities" instance=ExtResource("2_oc4kc")]
+position = Vector2(-176, -16)
+
+[node name="Enemy2" parent="Entities" instance=ExtResource("2_oc4kc")]
+position = Vector2(-112, 48)
+
+[node name="Enemy3" parent="Entities" instance=ExtResource("2_oc4kc")]
+position = Vector2(-176, 32)
+
+[node name="Enemy4" parent="Entities" instance=ExtResource("2_oc4kc")]
+position = Vector2(-128, 0)
+
+[node name="Door" parent="Entities" instance=ExtResource("3_s8va5")]
+position = Vector2(16, 32)
+
+[node name="Key" parent="Entities" node_paths=PackedStringArray("door_to_unlock") instance=ExtResource("4_dga24")]
+position = Vector2(-144, 16)
+door_to_unlock = NodePath("../Door")
+entity_name = "test_key"
+
+[node name="Coin" parent="Entities" instance=ExtResource("5_qxy0u")]
+position = Vector2(-96, 48)
+
+[node name="GroundSpikes" parent="Entities" instance=ExtResource("6_excbq")]
+
+[node name="LevelDoors" type="Node2D" parent="."]
+
+[node name="Entrance" type="Sprite2D" parent="LevelDoors"]
+position = Vector2(-208, -16)
+texture = SubResource("AtlasTexture_s8va5")
+
+[node name="Exit" parent="LevelDoors" instance=ExtResource("10_qxy0u")]
+position = Vector2(-208, 64)

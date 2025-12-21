@@ -73,11 +73,16 @@ func resolve_grid_space():
 	var enities = get_overlapping_areas()
 	print('on top of', enities)
 	for entity in enities:
-		entity.activate(self)
-	await get_tree().create_timer(.15).timeout
-	
+		var stop_resolve = entity.activate(self)
+		if stop_resolve: return true
+		await get_tree().create_timer(.15).timeout
+	await get_tree().create_timer(.05).timeout
+		
 
 func _roll_dice():
 	var random = RandomNumberGenerator.new()
 	dice_rolled = random.randi_range(1, 8)
 	print('🎲', dice_rolled)
+	
+func teleport_player_to_position(position:Vector2):
+	global_position = position

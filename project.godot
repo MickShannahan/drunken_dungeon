@@ -27,9 +27,12 @@ GameService="*res://scripts/globals/GameService.gd"
 Enemy=""
 Player=""
 Level=""
+ExitDoor=""
+Camera=""
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.06214884, 0.026626587, 0.0453666, 1)
