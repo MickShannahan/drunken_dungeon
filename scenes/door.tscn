@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dw4e2u2pw7gx"]
+
+[ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="1_hpvv5"]
+[ext_resource type="Script" uid="uid://dj23qjggs5lbj" path="res://scenes/door.gd" id="1_uvdjg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvdjg"]
+size = Vector2(16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83dcw"]
+atlas = ExtResource("1_hpvv5")
+region = Rect2(208, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la1wf"]
+atlas = ExtResource("1_hpvv5")
+region = Rect2(273, 262, 14, 11)
+
+[node name="Door" type="RigidBody2D"]
+script = ExtResource("1_uvdjg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_uvdjg")
+debug_color = Color(0.6540277, 0.4972583, 0.40810058, 0.41960785)
+
+[node name="ClosedSprites" type="Node2D" parent="."]
+
+[node name="Closed" type="Sprite2D" parent="ClosedSprites"]
+texture = SubResource("AtlasTexture_83dcw")
+
+[node name="Closed2" type="Sprite2D" parent="ClosedSprites/Closed"]
+position = Vector2(0, 16)
+texture = SubResource("AtlasTexture_83dcw")
+
+[node name="OpenSprites" type="Node2D" parent="."]
+visible = false
+
+[node name="Open" type="Sprite2D" parent="OpenSprites"]
+texture = SubResource("AtlasTexture_la1wf")

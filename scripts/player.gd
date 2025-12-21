@@ -72,10 +72,8 @@ func move_one_unit(dir: Vector2):
 func resolve_grid_space():
 	var enities = get_overlapping_areas()
 	print('on top of', enities)
-	for enity in enities:
-		if enity.is_in_group("Enemy"):
-			print('🤺', enity.entity_name)
-		enity.activate(self)
+	for entity in enities:
+		entity.activate(self)
 	await get_tree().create_timer(.15).timeout
 	
 

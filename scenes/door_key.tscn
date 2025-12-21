@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://daxeqnv5vuq70"]
+
+[ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="1_0rmhr"]
+[ext_resource type="Script" uid="uid://c0a7v1fuxbvb3" path="res://scripts/door_key.gd" id="1_si2ci"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvdjg"]
+atlas = ExtResource("1_0rmhr")
+region = Rect2(512, 176, 16, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_si2ci"]
+size = Vector2(14, 14)
+
+[node name="Key" type="Area2D"]
+script = ExtResource("1_si2ci")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_uvdjg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_si2ci")

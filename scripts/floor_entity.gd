@@ -1,4 +1,4 @@
-class_name FloorEntity extends Area2D
+class_name FloorEntity extends Node2D
 
 @export var entity_name: String
 
@@ -7,4 +7,3 @@ signal entity_activated(activated_by: Node2D)
 func activate(activating_body: Node2D):
 	print("Activated:", entity_name)
 	entity_activated.emit(activating_body)
-	pass
