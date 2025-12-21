@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://balqyl3r1p3fx"]
+[gd_scene load_steps=15 format=4 uid="uid://balqyl3r1p3fx"]
 
 [ext_resource type="PackedScene" uid="uid://ccagt5in31u65" path="res://scenes/ui/main_game_ui.tscn" id="1_kiw3p"]
 [ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Level.tscn" id="1_s0nni"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cjgy1tlehictf" path="res://scenes/Player_Camera.tscn" id="8_g4kob"]
 [ext_resource type="PackedScene" uid="uid://dw4e2u2pw7gx" path="res://scenes/door.tscn" id="8_qy1jj"]
 [ext_resource type="PackedScene" uid="uid://daxeqnv5vuq70" path="res://scenes/door_key.tscn" id="9_3xj3m"]
+[ext_resource type="PackedScene" uid="uid://cb7d57ae8742d" path="res://scenes/coin.tscn" id="10_mcffj"]
+[ext_resource type="PackedScene" uid="uid://b82wmh8b6abpn" path="res://scenes/ground_spikes.tscn" id="11_2rd6h"]
 
 [sub_resource type="GDScript" id="GDScript_s0nni"]
 script/source = "extends Node2D
@@ -72,6 +74,11 @@ position = Vector2(16, 32)
 position = Vector2(-144, 16)
 door_to_unlock = NodePath("../Door")
 entity_name = "test_key"
+
+[node name="Coin" parent="World/Level/Entities" instance=ExtResource("10_mcffj")]
+position = Vector2(-96, 48)
+
+[node name="GroundSpikes" parent="World/Level/Entities" instance=ExtResource("11_2rd6h")]
 
 [node name="Camera2D" parent="World" instance=ExtResource("8_g4kob")]
 position = Vector2(48, 116)

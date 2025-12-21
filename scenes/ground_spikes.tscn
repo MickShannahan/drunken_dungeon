@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b82wmh8b6abpn"]
+
+[ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="1_h78mv"]
+[ext_resource type="Script" uid="uid://jrx4qw7v4120" path="res://scenes/ground_spikes.gd" id="1_q5nsf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5nsf"]
+atlas = ExtResource("1_h78mv")
+region = Rect2(272, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpqyy"]
+atlas = ExtResource("1_h78mv")
+region = Rect2(352, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6co8"]
+size = Vector2(10, 10)
+
+[node name="GroundSpikes" type="Area2D"]
+script = ExtResource("1_q5nsf")
+
+[node name="Off" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_q5nsf")
+
+[node name="On" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -4)
+texture = SubResource("AtlasTexture_mpqyy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a6co8")
+debug_color = Color(0.900815, 0.21975717, 0.55929875, 0.41960785)
