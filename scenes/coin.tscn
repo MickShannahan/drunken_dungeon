@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cb7d57ae8742d"]
 
-[ext_resource type="Script" uid="uid://cogh7xcr8ievk" path="res://scenes/coin.gd" id="1_i64fm"]
+[ext_resource type="Script" uid="uid://cogh7xcr8ievk" path="res://scripts/Pickups/coin.gd" id="1_i64fm"]
 [ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="1_rwqht"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i64fm"]

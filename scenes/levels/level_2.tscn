@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=4 uid="uid://bqvmux4224t1m"]
 
-[ext_resource type="Script" uid="uid://2ffwxc308h1k" path="res://scenes/levels/level.gd" id="1_ibugp"]
+[ext_resource type="Script" uid="uid://2ffwxc308h1k" path="res://scripts/level.gd" id="1_ibugp"]
 [ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Level.tscn" id="1_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://bmxq38frpgfnq" path="res://scenes/enemy.tscn" id="2_ibugp"]
 [ext_resource type="PackedScene" uid="uid://cb7d57ae8742d" path="res://scenes/coin.tscn" id="5_qsp8v"]
 [ext_resource type="PackedScene" uid="uid://b82wmh8b6abpn" path="res://scenes/ground_spikes.tscn" id="6_nt80m"]
 [ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="7_8qukl"]
-[ext_resource type="Script" uid="uid://bqlqbc6wmyro4" path="res://scenes/levels/exit.gd" id="8_3p04p"]
+[ext_resource type="Script" uid="uid://bqlqbc6wmyro4" path="res://scripts/exit.gd" id="8_3p04p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qsp8v"]
 atlas = ExtResource("7_8qukl")

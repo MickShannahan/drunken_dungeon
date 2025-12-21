@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqw1d07htiwtf"]
 
-[ext_resource type="Script" uid="uid://bqlqbc6wmyro4" path="res://scenes/levels/exit.gd" id="1_uyw7u"]
+[ext_resource type="Script" uid="uid://bqlqbc6wmyro4" path="res://scripts/exit.gd" id="1_uyw7u"]
 [ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="2_l5n14"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dga24"]
