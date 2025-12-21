@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://f1sw03phvscv" path="res://scripts/player_camera.gd" id="1_jcfh6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcfh6"]
-size = Vector2(608, 0)
+size = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D"]
 zoom = Vector2(2, 2)

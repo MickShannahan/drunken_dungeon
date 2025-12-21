@@ -12,7 +12,7 @@ func activate(activating_body: Node2D):
 func step_on_trap(player: Player):
 	if !currently_on:
 		turn_on()
-	else :
+	else:
 		player.recieve_damage(damage)
 		
 func turn_on():

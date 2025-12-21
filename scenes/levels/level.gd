@@ -3,7 +3,7 @@ class_name Level extends Node2D
 @onready var entrance_door := $LevelDoors/Entrance
 @onready var exit_door := $LevelDoors/Exit
 @export var exit_to_floor: PackedScene
-@onready var player : Player = get_tree().get_first_node_in_group('Player')
+@onready var player: Player = get_tree().get_first_node_in_group('Player')
 @onready var player_cam: PlayerCamera = get_tree().get_first_node_in_group('Camera')
 
 # Called when the node enters the scene tree for the first time.
