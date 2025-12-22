@@ -54,7 +54,7 @@ func Update(_delta: float):
 			_move_diagonal(directions.up_left)
 		elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right"): # ↘️
 			_move_diagonal(directions.down_right)
-		elif Input.is_action_pressed("ui_down") and Input.is_action_just_pressed("ui_left"): # ↙️
+		elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left"): # ↙️
 			_move_diagonal(directions.down_left)
 
 func _move_cardinal(dir: Vector2):
