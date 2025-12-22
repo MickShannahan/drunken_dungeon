@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://box4bgrh1vgxq"]
+[gd_scene load_steps=17 format=4 uid="uid://box4bgrh1vgxq"]
 
 [ext_resource type="Script" uid="uid://2ffwxc308h1k" path="res://scripts/level.gd" id="1_ibugp"]
 [ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Tiles.tscn" id="1_qpwj6"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://d1v64o1eov673" path="res://scenes/spider_web.tscn" id="8_qsp8v"]
 [ext_resource type="PackedScene" uid="uid://bmxq38frpgfnq" path="res://scenes/Enemies/spider.tscn" id="10_nt80m"]
 [ext_resource type="PackedScene" uid="uid://d3j7k20wmmlbp" path="res://scenes/wall_dart.tscn" id="11_nt80m"]
-[ext_resource type="PackedScene" uid="uid://bqvmux4224t1m" path="res://scenes/levels/level_3.tscn" id="11_tv7cl"]
 [ext_resource type="PackedScene" uid="uid://d0ek8ds6xgdrc" path="res://scenes/arrow.tscn" id="12_brxtv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nt80m"]
@@ -322,7 +321,7 @@ debug_color = Color(0.8901961, 0.2627451, 0.5019608, 0.25882354)
 [node name="WallDart2" parent="Entities" instance=ExtResource("11_nt80m")]
 position = Vector2(-16, 240)
 rotation = -3.1415925
-projectile = ExtResource("11_tv7cl")
+projectile = ExtResource("12_brxtv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/WallDart2"]
 position = Vector2(-59, 0)
