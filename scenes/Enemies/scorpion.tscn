@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbusnbeb28gad"]
+[gd_scene load_steps=8 format=3 uid="uid://dbusnbeb28gad"]
 
 [ext_resource type="Script" uid="uid://cr4r4udfrgoe2" path="res://scripts/Enemies/enemy.gd" id="1_aui2w"]
 [ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="2_lubg7"]
+[ext_resource type="PackedScene" uid="uid://crkn1c1lklvv4" path="res://scenes/Particles/bug_splatter.tscn" id="2_toc5t"]
 [ext_resource type="LabelSettings" uid="uid://6olubv8codln" path="res://scenes/ui/enemy_stats_font.tres" id="3_toc5t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4kob"]
@@ -25,7 +26,8 @@ size = Vector2(12, 12)
 [node name="Scorpion" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_aui2w")
 health_min = 1
-health_max = 3
+health_max = 2
+death_effect = ExtResource("2_toc5t")
 entity_name = "Scorpion"
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]

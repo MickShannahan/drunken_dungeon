@@ -23,7 +23,8 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var size_offset = get_rect().size / 2
-	global_position = player.global_position - size_offset
+	if player:
+		global_position = player.global_position - size_offset
 
 func _get_ui_node_arrows():
 	var arrow_nodes = $DirectionArrows.get_children()

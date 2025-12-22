@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmxq38frpgfnq"]
+[gd_scene load_steps=8 format=3 uid="uid://bmxq38frpgfnq"]
 
 [ext_resource type="Script" uid="uid://cr4r4udfrgoe2" path="res://scripts/Enemies/enemy.gd" id="1_j71ep"]
+[ext_resource type="PackedScene" uid="uid://crkn1c1lklvv4" path="res://scenes/Particles/bug_splatter.tscn" id="2_pvsyd"]
 [ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="2_q1not"]
 [ext_resource type="LabelSettings" uid="uid://6olubv8codln" path="res://scenes/ui/enemy_stats_font.tres" id="3_pvsyd"]
 
@@ -27,6 +28,7 @@ z_index = 1
 script = ExtResource("1_j71ep")
 health_min = 3
 health_max = 6
+death_effect = ExtResource("2_pvsyd")
 entity_name = "Scorpion"
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]

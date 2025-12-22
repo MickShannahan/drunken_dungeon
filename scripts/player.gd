@@ -7,6 +7,7 @@ var sprite_node_pos_tween: Tween
 var dice_rolled: int = 1
 var character_name: String = 'slate slabrock'
 var is_moving: bool = false
+var blood_effect := load("res://scenes/Particles/blood_splatter.tscn")
 
 @export var health: int
 @export var attack_power: int
@@ -61,6 +62,7 @@ func recieve_damage(damage: int):
 	health = max(0, health - damage)
 	player_damaged.emit(health)
 	print('🩸', health)
+	splatter_blood(damage)
 	if health <= 0:
 		die()
 
@@ -92,6 +94,12 @@ func _roll_dice():
 	
 func teleport_player_to_position(position:Vector2):
 	global_position = position
+	
+func splatter_blood(blood_amount:int):
+	for b in blood_amount:
+		var blood_instance = blood_effect.instantiate()
+		get_tree().get_first_node_in_group('Level').add_child(blood_instance)
+		blood_instance.global_position = global_position
 	
 func die():
 #	need to do something other than just disapear

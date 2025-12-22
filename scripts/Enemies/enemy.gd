@@ -3,6 +3,7 @@ class_name Enemy extends FloorEntity
 @export var health_min: int
 @export var health_max: int
 @export var flipped_h: bool = false
+@export var death_effect : PackedScene
 var health: int
 var is_dead := false
 var xp_reward := 1
@@ -30,4 +31,8 @@ func die():
 	print('💀', self)
 	is_dead = true
 	$EnemyUi.visible = false
+	if death_effect:
+		var effect_instance = death_effect.instantiate()
+		get_tree().get_first_node_in_group('Level').add_child(effect_instance)
+		effect_instance.global_position = global_position
 	queue_free()

@@ -21,6 +21,7 @@ script = ExtResource("1_q5nsf")
 texture = SubResource("AtlasTexture_q5nsf")
 
 [node name="On" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("AtlasTexture_mpqyy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

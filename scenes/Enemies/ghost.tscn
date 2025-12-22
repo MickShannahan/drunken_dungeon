@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxk3mciybccyx"]
+[gd_scene load_steps=8 format=3 uid="uid://cxk3mciybccyx"]
 
 [ext_resource type="Script" uid="uid://dhfpkdms84foy" path="res://scripts/Enemies/ghost.gd" id="1_aysrp"]
 [ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="2_am663"]
+[ext_resource type="PackedScene" uid="uid://crkn1c1lklvv4" path="res://scenes/Particles/bug_splatter.tscn" id="2_dmycf"]
 [ext_resource type="LabelSettings" uid="uid://6olubv8codln" path="res://scenes/ui/enemy_stats_font.tres" id="3_dmycf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aysrp"]
@@ -25,6 +26,7 @@ size = Vector2(12, 12)
 [node name="Ghost" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_aysrp")
 movement_speed = 2
+death_effect = ExtResource("2_dmycf")
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.22214592, 0.9091742, 0.99999934, 0.7058824)
