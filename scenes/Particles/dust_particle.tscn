@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cddpdy88jl1u7"]
+
+[ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="1_1g31f"]
+[ext_resource type="Script" uid="uid://dcje4w6sfrnyp" path="res://scripts/dust_particle.gd" id="2_uu27e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blldm"]
+atlas = ExtResource("1_1g31f")
+region = Rect2(145, 353, 14, 14)
+
+[sub_resource type="Curve" id="Curve_1g31f"]
+_data = [Vector2(0.73089707, 1), 0.0, 0.0, 0, 0, Vector2(0.9401994, 0.027628064), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="DustParticle" type="CPUParticles2D"]
+modulate = Color(0.5462378, 0.5222507, 0.48394263, 1)
+texture = SubResource("AtlasTexture_blldm")
+lifetime = 0.5
+lifetime_randomness = 0.09
+direction = Vector2(0, 0)
+spread = 34.65
+gravity = Vector2(0, -50)
+initial_velocity_max = 10.0
+scale_amount_min = 0.03
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_1g31f")
+script = ExtResource("2_uu27e")
+life_time = 0.5
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

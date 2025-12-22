@@ -9,6 +9,7 @@ var character_name: String = 'slate slabrock'
 var is_moving: bool = false
 var blood_effect := load("res://scenes/Particles/blood_splatter.tscn")
 var blood_drip_effect := load('res://scenes/Particles/blood_drip.tscn')
+var dust_effect := load('res://scenes/Particles/dust_particle.tscn')
 
 @export var health: int
 @export var attack_power: int
@@ -74,6 +75,7 @@ func move_one_unit(dir: Vector2):
 	sprite_node_pos_tween = create_tween()
 	sprite_node_pos_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	sprite_node_pos_tween.tween_property(self, "global_position", target_position, .15).set_trans(Tween.TRANS_SINE)
+	make_dust(dir)
 	await sprite_node_pos_tween.finished
 	player_moved_one_unit.emit()
 	if health <= 10:
@@ -107,6 +109,12 @@ func drip_blood():
 	var blood_instance = blood_drip_effect.instantiate()
 	get_tree().get_first_node_in_group('Level').add_child(blood_instance)
 	blood_instance.global_position = global_position
+	
+func make_dust(dir:Vector2):
+	var dust_instance : CPUParticles2D = dust_effect.instantiate()
+	get_tree().get_first_node_in_group('Level').add_child(dust_instance)
+	dust_instance.global_position = global_position
+	dust_instance.direction = dir * -1
 	
 func die():
 	queue_free()

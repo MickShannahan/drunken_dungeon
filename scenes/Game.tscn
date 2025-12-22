@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qy1jj"]
 shader = ExtResource("9_g4kob")
-shader_parameter/aberration_x = 0.008000047879999972
+shader_parameter/aberration_x = 0.006000047784999962
 shader_parameter/aberration_y = 4.7499999933364734e-08
 shader_parameter/aberration_strength = 1.0
 shader_parameter/enable_fisheye = true
@@ -35,7 +35,7 @@ shader_parameter/fisheye_center_x = 0.5000000712500001
 shader_parameter/fisheye_center_y = 0.5000000712500001
 shader_parameter/fisheye_edge_fade = 0.3
 shader_parameter/enable_scanlines = true
-shader_parameter/scanline_intensity = 0.0800000038
+shader_parameter/scanline_intensity = 0.050000002375
 shader_parameter/scanline_spacing = 5.4590002118025
 shader_parameter/scanline_speed = 1.3600000646
 shader_parameter/enable_glow = false
@@ -76,7 +76,6 @@ position = Vector2(-208, -16)
 script = ExtResource("9_qy1jj")
 
 [node name="ChromaAbr" type="ColorRect" parent="Shaders"]
-visible = false
 z_index = 100
 material = SubResource("ShaderMaterial_qy1jj")
 offset_left = -512.0
