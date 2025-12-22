@@ -1,5 +1,9 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://gekll6thf6cf"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://gekll6thf6cf"]
+
+[ext_resource type="FontFile" uid="uid://cwv437bplln1a" path="res://assets/fonts/Bytesized-Regular.ttf" id="1_6qkbt"]
 
 [resource]
-font_size = 11
-shadow_color = Color(0, 0, 0, 0.26666668)
+font = ExtResource("1_6qkbt")
+font_color = Color(0.95686275, 0.7058824, 0.105882354, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
