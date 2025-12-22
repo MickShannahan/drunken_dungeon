@@ -26,6 +26,8 @@ size = Vector2(12, 12)
 [node name="Ghost" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_aysrp")
 movement_speed = 2
+health_min = 5
+health_max = 5
 death_effect = ExtResource("2_dmycf")
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]

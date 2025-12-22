@@ -7,9 +7,9 @@
 atlas = ExtResource("1_bgt3q")
 region = Rect2(145, 353, 14, 14)
 
-[node name="BloodSplatter" type="CPUParticles2D"]
+[node name="BugSplatter" type="CPUParticles2D"]
 physics_interpolation_mode = 1
-amount = 10
+amount = 2
 texture = SubResource("AtlasTexture_8s317")
 lifetime = 10.0
 explosiveness = 1.0
@@ -19,7 +19,7 @@ initial_velocity_min = 1.0
 initial_velocity_max = 150.0
 scale_amount_min = 0.1
 scale_amount_max = 0.5
-color = Color(5.7756904e-07, 0.551553, 0.27458614, 1)
+color = Color(0, 0.73333335, 0.37254903, 1)
 script = ExtResource("2_psr08")
 timer = 0.05
 

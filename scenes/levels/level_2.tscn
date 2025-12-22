@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://box4bgrh1vgxq"]
+[gd_scene load_steps=17 format=4 uid="uid://box4bgrh1vgxq"]
 
 [ext_resource type="Script" uid="uid://2ffwxc308h1k" path="res://scripts/level.gd" id="1_ibugp"]
 [ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Tiles.tscn" id="1_qpwj6"]
@@ -10,6 +10,11 @@
 [ext_resource type="Script" uid="uid://bqlqbc6wmyro4" path="res://scripts/exit.gd" id="8_3p04p"]
 [ext_resource type="PackedScene" uid="uid://d1v64o1eov673" path="res://scenes/spider_web.tscn" id="8_qsp8v"]
 [ext_resource type="PackedScene" uid="uid://bmxq38frpgfnq" path="res://scenes/Enemies/spider.tscn" id="10_nt80m"]
+[ext_resource type="PackedScene" uid="uid://d3j7k20wmmlbp" path="res://scenes/wall_dart.tscn" id="11_nt80m"]
+[ext_resource type="PackedScene" uid="uid://d0ek8ds6xgdrc" path="res://scenes/arrow.tscn" id="12_brxtv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt80m"]
+size = Vector2(138, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qsp8v"]
 atlas = ExtResource("7_8qukl")
@@ -302,6 +307,26 @@ position = Vector2(32, 192)
 
 [node name="Coin40" parent="Entities" instance=ExtResource("5_qsp8v")]
 position = Vector2(48, 176)
+
+[node name="WallDart" parent="Entities" instance=ExtResource("11_nt80m")]
+position = Vector2(-16, 304)
+rotation = -3.1415925
+projectile = ExtResource("12_brxtv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/WallDart"]
+position = Vector2(-59, 0)
+shape = SubResource("RectangleShape2D_nt80m")
+debug_color = Color(0.8901961, 0.2627451, 0.5019608, 0.25882354)
+
+[node name="WallDart2" parent="Entities" instance=ExtResource("11_nt80m")]
+position = Vector2(-16, 240)
+rotation = -3.1415925
+projectile = ExtResource("12_brxtv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/WallDart2"]
+position = Vector2(-59, 0)
+shape = SubResource("RectangleShape2D_nt80m")
+debug_color = Color(0.8901961, 0.2627451, 0.5019608, 0.25882354)
 
 [node name="LevelDoors" type="Node2D" parent="."]
 

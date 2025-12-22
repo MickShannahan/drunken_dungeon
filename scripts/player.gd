@@ -8,6 +8,7 @@ var dice_rolled: int = 1
 var character_name: String = 'slate slabrock'
 var is_moving: bool = false
 var blood_effect := load("res://scenes/Particles/blood_splatter.tscn")
+var blood_drip_effect := load('res://scenes/Particles/blood_drip.tscn')
 
 @export var health: int
 @export var attack_power: int
@@ -68,7 +69,6 @@ func recieve_damage(damage: int):
 
 func move_one_unit(dir: Vector2):
 	var target_position = global_position + dir * TILE_SIZE
-	
 	if sprite_node_pos_tween:
 		sprite_node_pos_tween.kill()
 	sprite_node_pos_tween = create_tween()
@@ -76,6 +76,8 @@ func move_one_unit(dir: Vector2):
 	sprite_node_pos_tween.tween_property(self, "global_position", target_position, .15).set_trans(Tween.TRANS_SINE)
 	await sprite_node_pos_tween.finished
 	player_moved_one_unit.emit()
+	if health <= 10:
+		drip_blood()
 	
 func resolve_grid_space():
 	var enities = get_overlapping_areas()
@@ -100,7 +102,11 @@ func splatter_blood(blood_amount:int):
 		var blood_instance = blood_effect.instantiate()
 		get_tree().get_first_node_in_group('Level').add_child(blood_instance)
 		blood_instance.global_position = global_position
+
+func drip_blood():
+	var blood_instance = blood_drip_effect.instantiate()
+	get_tree().get_first_node_in_group('Level').add_child(blood_instance)
+	blood_instance.global_position = global_position
 	
 func die():
-#	need to do something other than just disapear
 	queue_free()
