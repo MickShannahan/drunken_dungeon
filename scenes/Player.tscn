@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4ut5cvrpoxki"]
 
-[ext_resource type="Texture2D" uid="uid://cbx7ej1knm7d6" path="res://assets/images/littleCharacter2.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://b61qhroayn7gy" path="res://scripts/player.gd" id="1_v6fml"]
+[ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="2_v6fml"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
-atlas = ExtResource("1_3vyb7")
-region = Rect2(0, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3li8b"]
+atlas = ExtResource("2_v6fml")
+region = Rect2(432, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g2els")
+"texture": SubResource("AtlasTexture_3li8b")
 }],
 "loop": true,
 "name": &"default",
@@ -24,7 +24,8 @@ radius = 8.0
 [node name="Player" type="Area2D" groups=["Player"]]
 z_index = 9
 y_sort_enabled = true
-collision_layer = 513
+collision_layer = 515
+collision_mask = 3
 script = ExtResource("1_v6fml")
 health = 25
 attack_power = 5

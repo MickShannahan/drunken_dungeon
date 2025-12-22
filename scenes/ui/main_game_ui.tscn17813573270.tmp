@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ccagt5in31u65"]
+[gd_scene load_steps=12 format=3 uid="uid://ccagt5in31u65"]
 
 [ext_resource type="Script" uid="uid://cwp15r64sl5nu" path="res://scripts/player_ui.gd" id="1_i8egv"]
 [ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="2_2lr7m"]
@@ -20,15 +20,11 @@ region = Rect2(768, 272, 16, 16)
 
 [sub_resource type="Theme" id="Theme_48pfk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j2veb"]
-atlas = ExtResource("2_2lr7m")
-region = Rect2(672, 159, 16, 17)
-
-[sub_resource type="LabelSettings" id="LabelSettings_bb4rc"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_48pfk"]
 atlas = ExtResource("2_2lr7m")
-region = Rect2(656, 48, 16, 16)
+region = Rect2(672, 160, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bb4rc"]
 
 [node name="MainGameUi" type="Control"]
 layout_mode = 3
@@ -249,24 +245,10 @@ layout_mode = 2
 [node name="Heart" type="TextureRect" parent="GameUi/AsideContainer/Stats/Health"]
 layout_mode = 2
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j2veb")
+texture = SubResource("AtlasTexture_48pfk")
 stretch_mode = 2
 
 [node name="Number" type="Label" parent="GameUi/AsideContainer/Stats/Health"]
 layout_mode = 2
 text = "50"
-label_settings = SubResource("LabelSettings_bb4rc")
-
-[node name="Gold" type="HBoxContainer" parent="GameUi/AsideContainer/Stats"]
-layout_mode = 2
-
-[node name="Coin" type="TextureRect" parent="GameUi/AsideContainer/Stats/Gold"]
-layout_mode = 2
-size_flags_vertical = 4
-texture = SubResource("AtlasTexture_48pfk")
-stretch_mode = 2
-
-[node name="Number" type="Label" parent="GameUi/AsideContainer/Stats/Gold"]
-layout_mode = 2
-text = "0"
 label_settings = SubResource("LabelSettings_bb4rc")

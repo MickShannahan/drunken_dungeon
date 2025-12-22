@@ -42,21 +42,16 @@ func _physics_process(delta: float) -> void:
 	global_position.x = player.global_position.x + ui_width_offset
 	
 	# Debug draw camera limits
-	queue_redraw()
+	if OS.is_debug_build():
+		queue_redraw()
 
 func _draw() -> void:
-	var viewport_width = get_viewport_rect().size.x * 2 # Extend across full width
-	var viewport_height = get_viewport_rect().size.y * 2 # Extend across full height
-	var color = Color.RED
-	
-	# Draw top limit line
-	draw_line(Vector2(-viewport_width, limit_top - global_position.y), Vector2(viewport_width, limit_top - global_position.y), color, 2.0)
-	
-	# Draw bottom limit line
-	draw_line(Vector2(-viewport_width, limit_bottom - global_position.y), Vector2(viewport_width, limit_bottom - global_position.y), color, 2.0)
-	
-	# Draw left limit line
-	draw_line(Vector2(limit_left - global_position.x, -viewport_height), Vector2(limit_left - global_position.x, viewport_height), color, 2.0)
-	
-	# Draw right limit line
-	draw_line(Vector2(limit_right - global_position.x, -viewport_height), Vector2(limit_right - global_position.x, viewport_height), color, 2.0)
+	if OS.is_debug_build():
+		var viewport_width = get_viewport_rect().size.x * 2 # Extend across full width
+		var viewport_height = get_viewport_rect().size.y * 2 # Extend across full height
+		var color = Color.from_rgba8(28, 146, 206, 52)
+		
+		draw_line(Vector2(-viewport_width, limit_top - global_position.y), Vector2(viewport_width, limit_top - global_position.y), color, 2.0)
+		draw_line(Vector2(-viewport_width, limit_bottom - global_position.y), Vector2(viewport_width, limit_bottom - global_position.y), color, 2.0)
+		draw_line(Vector2(limit_left - global_position.x, -viewport_height), Vector2(limit_left - global_position.x, viewport_height), color, 2.0)
+		draw_line(Vector2(limit_right - global_position.x, -viewport_height), Vector2(limit_right - global_position.x, viewport_height), color, 2.0)

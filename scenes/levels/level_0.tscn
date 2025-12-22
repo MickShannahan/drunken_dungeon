@@ -1,0 +1,125 @@
+[gd_scene load_steps=15 format=4 uid="uid://govtuyxti3sf"]
+
+[ext_resource type="Script" uid="uid://2ffwxc308h1k" path="res://scripts/level.gd" id="1_p6rmu"]
+[ext_resource type="PackedScene" uid="uid://bqvmux4224t1m" path="res://scenes/levels/level_3.tscn" id="2_34hum"]
+[ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Tiles.tscn" id="3_vhkxn"]
+[ext_resource type="PackedScene" uid="uid://dbusnbeb28gad" path="res://scenes/Enemies/scorpion.tscn" id="4_1q7iv"]
+[ext_resource type="PackedScene" uid="uid://dw4e2u2pw7gx" path="res://scenes/door.tscn" id="5_gj3kh"]
+[ext_resource type="PackedScene" uid="uid://daxeqnv5vuq70" path="res://scenes/door_key.tscn" id="6_myogd"]
+[ext_resource type="PackedScene" uid="uid://cb7d57ae8742d" path="res://scenes/coin.tscn" id="7_s4l03"]
+[ext_resource type="PackedScene" uid="uid://b82wmh8b6abpn" path="res://scenes/ground_spikes.tscn" id="8_ypncs"]
+[ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="9_0qejo"]
+[ext_resource type="PackedScene" uid="uid://d3j7k20wmmlbp" path="res://scenes/wall_dart.tscn" id="9_34hum"]
+[ext_resource type="PackedScene" uid="uid://bqw1d07htiwtf" path="res://scenes/exit.tscn" id="10_erlbe"]
+[ext_resource type="PackedScene" uid="uid://d0ek8ds6xgdrc" path="res://scenes/arrow.tscn" id="10_vhkxn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34hum"]
+size = Vector2(202, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8va5"]
+atlas = ExtResource("9_0qejo")
+region = Rect2(32, 96, 16, 16)
+
+[node name="Level" type="Node2D" groups=["Level"]]
+script = ExtResource("1_p6rmu")
+exit_to_floor = ExtResource("2_34hum")
+
+[node name="TileMapLayer" parent="." instance=ExtResource("3_vhkxn")]
+position = Vector2(-120, 72)
+tile_map_data = PackedByteArray("AAAIAAUAAAAKABEAAAALAPz/AAAKABEAAAAJAAQAAAAKABEAAAAJAAUAAAAHABYAAAALAPv/AAAKABEAAAALAPr/AAALABIAAAAQAPr/AAAKABEAAAAMAPr/AAAKABEAAAANAPr/AAAKABEAAAAOAPr/AAAKABEAAAAPAPr/AAAKABEAAAARAPr/AAAKABEAAAARAP7/AAAHABYAAAARAP//AAAHABYAAAARAAAAAAAHABYAAAALAAIAAAAKABEAAAALAAMAAAAKABEAAAALAAQAAAAKABEAAAAKAAUAAAAHABYAAAAIAAYAAAAKABEAAAAIAAcAAAAKABEAAAAIAAgAAAAKABEAAAAIAAkAAAAKABEAAAAIAAoAAAALABIAAAATAAoAAAAKABEAAAATAAkAAAAFABYAAAALAP3/AAAKABEAAAALAP7/AAAKABEAAAALAP//AAAKABEAAAALAAAAAAAKABEAAAALAAEAAAAKABEAAAASAPr/AAAKABEAAAATAPr/AAAAAA0AAAAUAPr/AAAKABEAAAAVAPr/AAAKABEAAAAWAPr/AAAKABEAAAAXAPr/AAAKABEAAAAYAPr/AAALABIAAAAYAPv/AAAKABEAAAAYAPz/AAAKABEAAAAYAP3/AAAKABEAAAAYAP7/AAAKABEAAAAYAP//AAAKABEAAAAYAAAAAAAKABEAAAAYAAEAAAAAAA0AAAAMAAMAAAAAAA0AAAANAAMAAAALABIAAAANAAQAAAAKABEAAAAMAAQAAAAKABEAAAAYAAIAAAAKABEAAAAYAAMAAAAKABEAAAAYAAQAAAALABIAAAAXAAQAAAAKABEAAAAWAAQAAAAKABEAAAAWAAMAAAALABIAAAAXAAMAAAAAAA0AAAANAAUAAAAKABEAAAANAAYAAAAKABEAAAANAAcAAAAKABIAAAAWAAUAAAAKABEAAAAWAAYAAAAKABEAAAAWAAcAAAAAAA0AAAAWAAgAAAAKABEAAAANAAoAAAAAAA0AAAAOAAoAAAAAAA0AAAAPAAoAAAAKABEAAAAQAAoAAAAKABEAAAASAAoAAAAKABEAAAAUAAoAAAAKABEAAAAVAAoAAAAKABEAAAAWAAoAAAALABIAAAAWAAkAAAAKABEAAAAKAAoAAAAKABEAAAALAAoAAAAKABEAAAAMAAoAAAAKABEAAAAKAAQAAAAAAA0AAAAIAAQAAAALABIAAAAJAAoAAAAKABEAAAARAAoAAAAKABEAAAAUAAkAAAAQAAAAAAAUAAgAAAAQAAAAAAAWAPv/AAAQAAAAAAAWAPz/AAAQAAAAAAAXAPz/AAAQAAAAAAAVAAgAAAAQAAAAAAASAP//AAAHABYAAAAQAP//AAAHABYAAAAXAAIAAAAHABYAAAAXAAEAAAAHABYAAAAWAAIAAAAHABYAAAAOAAgAAAAHABYAAAAOAAkAAAAHABYAAAAMAAkAAAAHABYAAAAMAAgAAAAHABYAAAAMAAUAAAAHABYAAAALAAUAAAAHABYAAAAXAP3/AAAGABYAAAAOAAYAAAAGABYAAAAOAPv/AAAGABYAAAASAAAAAAAGABYAAAAQAP7/AAAFABYAAAAMAAYAAAAFABYAAAA=")
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Door" parent="Entities" instance=ExtResource("5_gj3kh")]
+position = Vector2(96, 208)
+
+[node name="Key" parent="Entities" node_paths=PackedStringArray("door_to_unlock") instance=ExtResource("6_myogd")]
+position = Vector2(80, 112)
+door_to_unlock = NodePath("../Door")
+entity_name = "test_key"
+
+[node name="Coin" parent="Entities" instance=ExtResource("7_s4l03")]
+position = Vector2(32, 160)
+
+[node name="GroundSpikes" parent="Entities" instance=ExtResource("8_ypncs")]
+position = Vector2(80, 0)
+
+[node name="GroundSpikes2" parent="Entities" instance=ExtResource("8_ypncs")]
+position = Vector2(96, 0)
+
+[node name="GroundSpikes3" parent="Entities" instance=ExtResource("8_ypncs")]
+position = Vector2(80, 16)
+
+[node name="Coin2" parent="Entities" instance=ExtResource("7_s4l03")]
+position = Vector2(48, 160)
+
+[node name="Coin3" parent="Entities" instance=ExtResource("7_s4l03")]
+position = Vector2(64, 160)
+
+[node name="Coin4" parent="Entities" instance=ExtResource("7_s4l03")]
+position = Vector2(32, 176)
+
+[node name="Coin5" parent="Entities" instance=ExtResource("7_s4l03")]
+position = Vector2(48, 176)
+
+[node name="Coin6" parent="Entities" instance=ExtResource("7_s4l03")]
+position = Vector2(64, 176)
+
+[node name="Coin7" parent="Entities" instance=ExtResource("7_s4l03")]
+position = Vector2(80, 160)
+
+[node name="Coin8" parent="Entities" instance=ExtResource("7_s4l03")]
+position = Vector2(80, 176)
+
+[node name="Coin9" parent="Entities" instance=ExtResource("7_s4l03")]
+position = Vector2(48, 192)
+
+[node name="Coin10" parent="Entities" instance=ExtResource("7_s4l03")]
+position = Vector2(64, 192)
+
+[node name="Coin11" parent="Entities" instance=ExtResource("7_s4l03")]
+position = Vector2(80, 192)
+
+[node name="GroundSpikes4" parent="Entities" instance=ExtResource("8_ypncs")]
+position = Vector2(32, 224)
+
+[node name="GroundSpikes5" parent="Entities" instance=ExtResource("8_ypncs")]
+position = Vector2(112, 128)
+
+[node name="GroundSpikes6" parent="Entities" instance=ExtResource("8_ypncs")]
+position = Vector2(224, 128)
+
+[node name="Enemy" parent="Entities" instance=ExtResource("4_1q7iv")]
+position = Vector2(32, 192)
+
+[node name="Enemy2" parent="Entities" instance=ExtResource("4_1q7iv")]
+position = Vector2(160, 96)
+
+[node name="Enemy3" parent="Entities" instance=ExtResource("4_1q7iv")]
+position = Vector2(112, 48)
+
+[node name="Enemy4" parent="Entities" instance=ExtResource("4_1q7iv")]
+position = Vector2(208, 48)
+
+[node name="WallDart" parent="Entities" instance=ExtResource("9_34hum")]
+position = Vector2(256, 64)
+projectile = ExtResource("10_vhkxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/WallDart"]
+position = Vector2(-91, 0)
+shape = SubResource("RectangleShape2D_34hum")
+
+[node name="Coin12" parent="Entities" instance=ExtResource("7_s4l03")]
+position = Vector2(176, 64)
+
+[node name="Scorpion" parent="Entities" instance=ExtResource("4_1q7iv")]
+position = Vector2(96, 64)
+
+[node name="LevelDoors" type="Node2D" parent="."]
+
+[node name="Entrance" type="Sprite2D" parent="LevelDoors"]
+position = Vector2(256, 0)
+texture = SubResource("AtlasTexture_s8va5")
+
+[node name="Exit" parent="LevelDoors" instance=ExtResource("10_erlbe")]
+position = Vector2(224, 224)

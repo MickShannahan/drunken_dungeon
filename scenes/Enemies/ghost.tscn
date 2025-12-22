@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxk3mciybccyx"]
+
+[ext_resource type="Script" uid="uid://dhfpkdms84foy" path="res://scripts/Enemies/ghost.gd" id="1_aysrp"]
+[ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="2_am663"]
+[ext_resource type="LabelSettings" uid="uid://6olubv8codln" path="res://scenes/ui/enemy_stats_font.tres" id="3_dmycf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aysrp"]
+atlas = ExtResource("2_am663")
+region = Rect2(416, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8q28"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aysrp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xj3m"]
+size = Vector2(12, 12)
+
+[node name="Ghost" type="Area2D" groups=["Enemy"]]
+script = ExtResource("1_aysrp")
+movement_speed = 2
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.22214592, 0.9091742, 0.99999934, 0.7058824)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_e8q28")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_3xj3m")
+
+[node name="EnemyUi" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="EnemyUi"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = 11.999998
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+text = "1"
+label_settings = ExtResource("3_dmycf")
+horizontal_alignment = 2

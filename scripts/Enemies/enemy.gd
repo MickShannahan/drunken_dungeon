@@ -2,6 +2,7 @@ class_name Enemy extends FloorEntity
 
 @export var health_min: int
 @export var health_max: int
+@export var flipped_h: bool = false
 var health: int
 var is_dead := false
 var xp_reward := 1
@@ -10,6 +11,8 @@ func _ready():
 	entity_activated.connect(battle)
 	health = randi_range(health_min, health_max)
 	$EnemyUi/Label.text = str(health)
+	if flipped_h:
+		$EnemySprite.flip_h = true
 	
 func battle(player: Player):
 	print(player.character_name, " hit the ", entity_name)
@@ -17,7 +20,11 @@ func battle(player: Player):
 	health = max(0, health - player.attack_power)
 	if health <=0:
 		die()
-	
+
+func recieve_damage(damage:int):
+	health = max(0, health - damage)
+	if health <=0:
+		die()
 
 func die():
 	print('💀', self)

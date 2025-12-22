@@ -1,4 +1,4 @@
-class_name FloorEntity extends Node2D
+class_name FloorEntity extends Area2D
 
 @export var entity_name: String
 

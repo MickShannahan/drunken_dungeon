@@ -21,6 +21,8 @@ var is_moving: bool = false
 @onready var down_right: RayCast2D = $down_right
 @onready var down_left: RayCast2D = $down_left
 
+signal player_moved_one_unit
+signal player_damaged
 
 func move_in_dir(dir: Vector2, dist: int):
 	is_moving = true
@@ -57,7 +59,10 @@ func move_in_dir(dir: Vector2, dist: int):
 
 func recieve_damage(damage: int):
 	health = max(0, health - damage)
+	player_damaged.emit(health)
 	print('🩸', health)
+	if health <= 0:
+		die()
 
 func move_one_unit(dir: Vector2):
 	var target_position = global_position + dir * TILE_SIZE
@@ -68,6 +73,7 @@ func move_one_unit(dir: Vector2):
 	sprite_node_pos_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	sprite_node_pos_tween.tween_property(self, "global_position", target_position, .15).set_trans(Tween.TRANS_SINE)
 	await sprite_node_pos_tween.finished
+	player_moved_one_unit.emit()
 	
 func resolve_grid_space():
 	var enities = get_overlapping_areas()
@@ -86,3 +92,7 @@ func _roll_dice():
 	
 func teleport_player_to_position(position:Vector2):
 	global_position = position
+	
+func die():
+#	need to do something other than just disapear
+	queue_free()

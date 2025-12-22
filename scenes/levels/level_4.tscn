@@ -1,0 +1,242 @@
+[gd_scene load_steps=18 format=4 uid="uid://gwifattn5sbb"]
+
+[ext_resource type="Script" uid="uid://2ffwxc308h1k" path="res://scripts/level.gd" id="1_qvnao"]
+[ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Tiles.tscn" id="2_hsvsk"]
+[ext_resource type="PackedScene" uid="uid://b82wmh8b6abpn" path="res://scenes/ground_spikes.tscn" id="6_1bx01"]
+[ext_resource type="PackedScene" uid="uid://d1v64o1eov673" path="res://scenes/spider_web.tscn" id="7_vq5n0"]
+[ext_resource type="PackedScene" uid="uid://cxk3mciybccyx" path="res://scenes/Enemies/ghost.tscn" id="8_glw47"]
+[ext_resource type="PackedScene" uid="uid://bmxq38frpgfnq" path="res://scenes/Enemies/spider.tscn" id="8_xt2o7"]
+[ext_resource type="PackedScene" uid="uid://d3j7k20wmmlbp" path="res://scenes/wall_dart.tscn" id="9_4wsov"]
+[ext_resource type="PackedScene" uid="uid://cb7d57ae8742d" path="res://scenes/coin.tscn" id="9_beuva"]
+[ext_resource type="PackedScene" uid="uid://c5mlgmphaq1q8" path="res://scenes/Enemies/armor.tscn" id="10_05se8"]
+[ext_resource type="PackedScene" uid="uid://d0ek8ds6xgdrc" path="res://scenes/arrow.tscn" id="10_qvnao"]
+[ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="11_12cdj"]
+[ext_resource type="Script" uid="uid://bqlqbc6wmyro4" path="res://scripts/exit.gd" id="12_r3huh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wsov"]
+size = Vector2(224, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvnao"]
+size = Vector2(336, 0.25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsp8v"]
+atlas = ExtResource("11_12cdj")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt80m"]
+atlas = ExtResource("11_12cdj")
+region = Rect2(49, 97, 14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brxtv"]
+size = Vector2(12, 12)
+
+[node name="Level" type="Node2D" groups=["Level"]]
+script = ExtResource("1_qvnao")
+metadata/_custom_type_script = "uid://2ffwxc308h1k"
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_hsvsk")]
+position = Vector2(-120, 72)
+tile_map_data = PackedByteArray("AAD5/wEAAAAKABEAAAD5/wUAAAAKABEAAAD6/wUAAAAKABEAAAD7/wUAAAALABEAAAAAAAUAAAAKABEAAAD3/wEAAAAKABEAAAD4/wEAAAAKABEAAAD6/wEAAAAKABEAAAD7/wEAAAAAAA0AAAD8/wEAAAAKABEAAAD9/wEAAAAKABEAAAD+/wEAAAAKABEAAAD//wEAAAAKABEAAAAAAAEAAAAKABEAAAAAAAIAAAAKABEAAAAAAAMAAAAKABEAAAAAAAQAAAAKABEAAAAAAAYAAAAKABEAAAAAAAcAAAAKABEAAAD2/wEAAAAAAA0AAAD2/wIAAAAKABEAAAD2/wMAAAAKABEAAAD2/wQAAAAKABEAAAD2/wUAAAAKABIAAAD2/wYAAAAKABEAAAD2/wcAAAAKABEAAAD2/wgAAAAKABEAAAD3/wUAAAAKABEAAAD4/wUAAAAKABEAAAD7/wkAAAALABEAAAD8/wkAAAAKABEAAAD9/wkAAAAKABEAAAD+/wkAAAAKABEAAAD//wkAAAAKABEAAAAAAAkAAAAKABEAAAAAAAgAAAAKABIAAAD2/wkAAAAKABEAAAD2/woAAAAKABEAAAD2/wsAAAAKABEAAAD2/wwAAAAKABEAAAD2/w0AAAALABEAAAD+/w0AAAAKABIAAAD9/w0AAAAKABEAAAD8/w0AAAAKABEAAAD7/w0AAAAKABEAAAD6/w0AAAAKABEAAAD5/w0AAAAKABEAAAD4/w0AAAAKABEAAAD3/w0AAAAKABEAAAABAAgAAAAKABEAAAACAAgAAAAAAA0AAAADAAgAAAAKABEAAAAEAAgAAAAKABEAAAAFAAgAAAAKABEAAAAFAAkAAAAKABEAAAAFAAoAAAAKABEAAAAFAAsAAAAKABEAAAAFAAwAAAAAAA0AAAAFAA0AAAAKABEAAAAFAA4AAAAKABEAAAAFAA8AAAAKABEAAAAFABAAAAAKABEAAAAFABEAAAAKABEAAAAFABIAAAAKABEAAAAEABIAAAAAAA0AAAADABIAAAAKABEAAAACABIAAAAKABEAAAABABIAAAAKABEAAAAAABIAAAAKABEAAAD//xIAAAAKABEAAAD+/xIAAAAKABEAAADv/wUAAAAAAA0AAADw/wUAAAAKABEAAADx/wUAAAAKABEAAADy/wUAAAAKABEAAADz/wUAAAAKABEAAAD0/wUAAAAKABEAAAD1/wUAAAAKABEAAADv/wYAAAAKABEAAADv/wcAAAAKABEAAADv/wgAAAAAAA0AAADv/wkAAAAKABEAAADv/woAAAAKABEAAADv/wsAAAAAAA0AAADv/wwAAAAKABEAAADv/w0AAAAKABEAAADv/w4AAAAKABEAAADv/w8AAAAKABEAAADv/xAAAAAKABEAAADv/xEAAAAKABEAAADv/xIAAAAKABEAAADw/xIAAAAKABEAAADx/xIAAAAAAA0AAADy/xIAAAAKABEAAADz/xIAAAAKABEAAAD0/xIAAAAKABEAAAD1/xIAAAAKABEAAAD2/xIAAAAKABEAAAD3/xIAAAAKABEAAAD4/xIAAAAKABEAAAD5/xIAAAAKABEAAAD6/xIAAAAKABEAAAD7/xIAAAAKABEAAAD8/xIAAAAKABEAAAD9/xIAAAAKABEAAADw/w0AAAAKABEAAADw/w4AAAAKABEAAAD1/w0AAAAKABEAAAD2/w4AAAAKABEAAAD1/w4AAAAKABEAAAD3/wMAAAAQAAAAAAD4/wMAAAAQAAAAAAD4/wIAAAAQAAAAAAD0/wYAAAAQAAAAAAD0/wcAAAAQAAAAAAD1/wcAAAAQAAAAAAD3/w4AAAAHABYAAAD4/w4AAAAHABYAAAD3/w8AAAAHABYAAAD2/w8AAAAHABYAAAD1/w8AAAAHABYAAAD//wcAAAAHABYAAAD+/wgAAAAHABYAAAAEAA8AAAAHABYAAAADABAAAAAHABYAAAACABEAAAAHABYAAAAEAA4AAAAHABYAAAADAA8AAAAHABYAAAABABEAAAAHABYAAAACABAAAAAEABYAAAAEAA0AAAAEABYAAAD4/w8AAAAEABYAAAD5/w4AAAAGABYAAAD1/wwAAAAGABYAAADw/wwAAAAEABYAAADw/w8AAAAEABYAAADz/wYAAAAEABYAAADw/wYAAAAFABYAAAD1/wsAAAAFABYAAAD5/wwAAAAFABYAAAD4/wsAAAAFABYAAAD3/woAAAAHABYAAAD+/wcAAAAFABYAAAD9/wgAAAAEABYAAAD//w0AAAAGABYAAAD+/w4AAAAEABYAAAD//wwAAAAFABYAAADx/xAAAAAHABYAAADy/xEAAAAHABYAAAA=")
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="GroundSpikes" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-192, 144)
+
+[node name="GroundSpikes2" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-192, 128)
+
+[node name="GroundSpikes3" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-192, 112)
+
+[node name="GroundSpikes4" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-192, 208)
+
+[node name="GroundSpikes5" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-192, 192)
+
+[node name="GroundSpikes6" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-192, 176)
+
+[node name="GroundSpikes7" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-192, 240)
+
+[node name="GroundSpikes8" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-192, 256)
+
+[node name="GroundSpikes9" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-192, 272)
+
+[node name="GroundSpikes10" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-192, 304)
+
+[node name="GroundSpikes11" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-192, 320)
+
+[node name="GroundSpikes12" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-192, 336)
+
+[node name="GroundSpikes13" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-192, 352)
+
+[node name="Enemy" parent="Entities" instance=ExtResource("10_05se8")]
+position = Vector2(-144, 272)
+
+[node name="Enemy2" parent="Entities" instance=ExtResource("10_05se8")]
+position = Vector2(-272, 320)
+flipped_h = true
+
+[node name="SpiderWeb" parent="Entities" instance=ExtResource("7_vq5n0")]
+position = Vector2(-208, 224)
+
+[node name="SpiderWeb2" parent="Entities" instance=ExtResource("7_vq5n0")]
+position = Vector2(-176, 160)
+
+[node name="Enemy3" parent="Entities" instance=ExtResource("8_xt2o7")]
+position = Vector2(-352, 208)
+
+[node name="Enemy4" parent="Entities" instance=ExtResource("8_xt2o7")]
+position = Vector2(-304, 208)
+
+[node name="Coin" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-96, 224)
+
+[node name="Coin2" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-80, 224)
+
+[node name="Coin3" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-64, 224)
+
+[node name="Coin4" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-48, 224)
+
+[node name="Enemy5" parent="Entities" instance=ExtResource("8_glw47")]
+position = Vector2(-336, 288)
+health_min = 5
+health_max = 5
+entity_name = "ghost"
+
+[node name="GroundSpikes14" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-256, 272)
+
+[node name="GroundSpikes15" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-256, 176)
+
+[node name="GroundSpikes16" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-256, 256)
+
+[node name="GroundSpikes17" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-240, 272)
+
+[node name="GroundSpikes18" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-256, 192)
+
+[node name="GroundSpikes19" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-240, 176)
+
+[node name="GroundSpikes20" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-48, 352)
+
+[node name="GroundSpikes21" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-48, 336)
+
+[node name="GroundSpikes22" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-64, 352)
+
+[node name="Coin5" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-240, 240)
+
+[node name="Coin6" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-240, 224)
+
+[node name="Coin7" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-240, 208)
+
+[node name="Coin8" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-224, 192)
+
+[node name="Coin9" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-224, 256)
+
+[node name="Coin10" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-160, 192)
+
+[node name="Coin11" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-144, 176)
+
+[node name="Coin12" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-144, 160)
+
+[node name="Coin13" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-144, 144)
+
+[node name="Coin14" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-160, 128)
+
+[node name="Coin15" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-112, 256)
+
+[node name="Coin16" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-96, 272)
+
+[node name="Coin17" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-96, 288)
+
+[node name="Coin18" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-96, 304)
+
+[node name="Coin19" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-96, 320)
+
+[node name="Coin20" parent="Entities" instance=ExtResource("9_beuva")]
+position = Vector2(-112, 336)
+
+[node name="GroundSpikes23" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-128, 208)
+
+[node name="GroundSpikes24" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-128, 112)
+
+[node name="GroundSpikes25" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-368, 352)
+
+[node name="GroundSpikes26" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-368, 336)
+
+[node name="GroundSpikes27" parent="Entities" instance=ExtResource("6_1bx01")]
+position = Vector2(-352, 352)
+
+[node name="WallDart" parent="Entities" instance=ExtResource("9_4wsov")]
+position = Vector2(-48, 256)
+projectile = ExtResource("10_qvnao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/WallDart"]
+position = Vector2(-112, 0)
+shape = SubResource("RectangleShape2D_4wsov")
+debug_color = Color(0.92906684, 0.1614173, 0.53336734, 0.41960785)
+
+[node name="WallDart2" parent="Entities" instance=ExtResource("9_4wsov")]
+position = Vector2(-368, 336)
+rotation = 3.1415927
+projectile = ExtResource("10_qvnao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/WallDart2"]
+position = Vector2(-168, 0.125)
+shape = SubResource("RectangleShape2D_qvnao")
+debug_color = Color(0.92906684, 0.1614173, 0.53336734, 0.41960785)
+
+[node name="LevelDoors" type="Node2D" parent="."]
+
+[node name="Entrance" type="Sprite2D" parent="LevelDoors"]
+position = Vector2(-256, 112)
+texture = SubResource("AtlasTexture_qsp8v")
+
+[node name="Exit" type="Area2D" parent="LevelDoors" groups=["ExitDoor"]]
+position = Vector2(-288, 176)
+script = ExtResource("12_r3huh")
+
+[node name="Stairs" type="Sprite2D" parent="LevelDoors/Exit"]
+texture = SubResource("AtlasTexture_nt80m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelDoors/Exit"]
+shape = SubResource("RectangleShape2D_brxtv")

@@ -9,7 +9,7 @@ region = Rect2(272, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mpqyy"]
 atlas = ExtResource("1_h78mv")
-region = Rect2(352, 0, 16, 16)
+region = Rect2(0, 352, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6co8"]
 size = Vector2(10, 10)
@@ -21,8 +21,6 @@ script = ExtResource("1_q5nsf")
 texture = SubResource("AtlasTexture_q5nsf")
 
 [node name="On" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -4)
 texture = SubResource("AtlasTexture_mpqyy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

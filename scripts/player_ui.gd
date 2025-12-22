@@ -7,6 +7,7 @@ var ui_arrows: Dictionary[String, Control]
 var visible_arrows: Array[String]
 var show_roll_icon := false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	ui for movement arrows

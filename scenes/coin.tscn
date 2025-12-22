@@ -18,4 +18,5 @@ scale = Vector2(0.75, 0.75)
 texture = SubResource("AtlasTexture_i64fm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_kahox")

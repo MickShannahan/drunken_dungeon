@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=4 uid="uid://bqvmux4224t1m"]
+[gd_scene load_steps=14 format=4 uid="uid://box4bgrh1vgxq"]
 
 [ext_resource type="Script" uid="uid://2ffwxc308h1k" path="res://scripts/level.gd" id="1_ibugp"]
-[ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Level.tscn" id="1_qpwj6"]
-[ext_resource type="PackedScene" uid="uid://bmxq38frpgfnq" path="res://scenes/enemy.tscn" id="2_ibugp"]
+[ext_resource type="PackedScene" uid="uid://cmha1jwu7rd55" path="res://scenes/Tiles.tscn" id="1_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://dw4e2u2pw7gx" path="res://scenes/door.tscn" id="4_3p04p"]
+[ext_resource type="PackedScene" uid="uid://daxeqnv5vuq70" path="res://scenes/door_key.tscn" id="5_nt80m"]
 [ext_resource type="PackedScene" uid="uid://cb7d57ae8742d" path="res://scenes/coin.tscn" id="5_qsp8v"]
 [ext_resource type="PackedScene" uid="uid://b82wmh8b6abpn" path="res://scenes/ground_spikes.tscn" id="6_nt80m"]
 [ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="7_8qukl"]
 [ext_resource type="Script" uid="uid://bqlqbc6wmyro4" path="res://scripts/exit.gd" id="8_3p04p"]
+[ext_resource type="PackedScene" uid="uid://d1v64o1eov673" path="res://scenes/spider_web.tscn" id="8_qsp8v"]
+[ext_resource type="PackedScene" uid="uid://bmxq38frpgfnq" path="res://scenes/Enemies/spider.tscn" id="10_nt80m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qsp8v"]
 atlas = ExtResource("7_8qukl")
@@ -25,101 +28,280 @@ metadata/_custom_type_script = "uid://2ffwxc308h1k"
 
 [node name="TileMapLayer" parent="." instance=ExtResource("1_qpwj6")]
 position = Vector2(-120, 72)
-tile_map_data = PackedByteArray("AAD5/wEAAAAKABEAAAD5/wIAAAAKABEAAAD5/wMAAAAKABEAAAD5/wQAAAAKABEAAAD5/wUAAAAKABEAAAAHAAUAAAAKABEAAAAJAAIAAAAKABEAAAARAAIAAAAKABEAAAAKAAIAAAAKABEAAAALAAIAAAAKABEAAAAOAAIAAAAKABEAAAAPAAIAAAAKABEAAAAQAAIAAAAKABEAAAAJAAsAAAAKABEAAAAIAAsAAAAKABEAAAD6/wEAAAAKABEAAAD7/wEAAAAKABEAAAD8/wEAAAAKABEAAAD9/wEAAAAKABEAAAD+/wEAAAAKABEAAAD//wEAAAAKABEAAAAAAAEAAAAKABEAAAABAAEAAAAKABEAAAACAAEAAAAKABEAAAADAAEAAAAKABEAAAAEAAEAAAAKABEAAAAFAAEAAAAKABEAAAAGAAEAAAAKABEAAAAHAAEAAAAKABEAAAD5/wYAAAAKABEAAAD5/wcAAAAKABEAAAD5/wgAAAAKABEAAAD5/wkAAAAKABEAAAD5/woAAAAKABEAAAAHAAIAAAAKABEAAAAHAAMAAAAKABEAAAAHAAQAAAAKABEAAAAHAAYAAAAKABEAAAAHAAcAAAAKABEAAAAHAAgAAAAKABEAAAAHAAkAAAAKABEAAAAHAAoAAAAKABEAAAD5/wsAAAAKABEAAAD6/wsAAAAKABEAAAD7/wsAAAAKABEAAAD8/wsAAAAKABEAAAD9/wsAAAAKABEAAAAHAAsAAAAKABEAAAAGAAsAAAAKABEAAAAFAAsAAAAKABEAAAD6/wwAAAAKABEAAAD6/w0AAAAKABEAAAD6/w4AAAAKABEAAAD6/w8AAAAKABEAAAD6/xAAAAAKABEAAAD6/xEAAAAKABEAAAD6/xIAAAAKABEAAAD6/xMAAAAKABEAAAD6/xQAAAAKABEAAAAGABQAAAAKABEAAAD7/xQAAAAKABEAAAD8/xQAAAAKABEAAAD9/xQAAAAKABEAAAD+/xQAAAAKABEAAAD//xQAAAAKABEAAAAAABQAAAAKABEAAAABABQAAAAKABEAAAACABQAAAAKABEAAAADABQAAAAKABEAAAAEABQAAAAKABEAAAAFABQAAAAKABEAAAAIAAIAAAAKABEAAAAMAAIAAAAKABEAAAANAAIAAAAKABEAAAASAAIAAAAKABEAAAATAAIAAAAKABEAAAAUAAIAAAAKABEAAAAVAAIAAAAKABEAAAAVAAMAAAAKABEAAAAVAAQAAAAKABEAAAAVAAUAAAAKABEAAAAVAAYAAAAKABEAAAAVAAcAAAAKABEAAAAVAAgAAAAKABEAAAAVAAkAAAAKABEAAAAVAAoAAAAKABEAAAAVAAsAAAAKABEAAAAVAAwAAAAKABEAAAAVAA0AAAAKABEAAAAVAA4AAAAKABEAAAAVAA8AAAAKABEAAAAVABAAAAAKABEAAAAVABEAAAAKABEAAAAVABIAAAAKABEAAAAVABMAAAAKABEAAAAVABQAAAAKABEAAAAUABQAAAAKABEAAAATABQAAAAKABEAAAASABQAAAAKABEAAAARABQAAAAKABEAAAAQABQAAAAKABEAAAAPABQAAAAKABEAAAAOABQAAAAKABEAAAANABQAAAAKABEAAAAMABQAAAAKABEAAAALABQAAAAKABEAAAAKABQAAAAKABEAAAAJABQAAAAKABEAAAAIABQAAAAKABEAAAAHABQAAAAKABEAAAAFAAwAAAAKABEAAAAGAAwAAAAKABEAAAAHAAwAAAAKABEAAAD9/wwAAAAKABEAAAD8/wwAAAAKABEAAAD7/wwAAAAKABEAAAAJAAwAAAAKABEAAAAIAAwAAAAKABEAAAA=")
+tile_map_data = PackedByteArray("AAD5/wEAAAALABEAAAD5/wIAAAAKABEAAAD5/wMAAAAKABEAAAD5/wQAAAAKABEAAAD5/wUAAAAKABEAAAAEAAUAAAAHABYAAAAFAAUAAAAKABEAAAAGAAUAAAAQAAAAAAAHAAUAAAAQAAAAAAAJAAMAAAAAAA0AAAALAAMAAAAKABEAAAAOAAMAAAAKABEAAAAOAAQAAAAKABEAAAAOAAUAAAAKABEAAAAOAAsAAAAKABEAAAALAAsAAAAKABIAAAAKAAsAAAAKABEAAAAJAAsAAAAKABIAAAD7/wIAAAAQAAAAAAD6/wEAAAAKABEAAAD7/wEAAAAKABEAAAD8/wEAAAAKABEAAAD9/wEAAAAKABEAAAD+/wEAAAAKABEAAAD//wEAAAAKABEAAAAAAAEAAAAKABEAAAABAAEAAAAKABEAAAACAAEAAAAKABEAAAADAAEAAAAKABEAAAAEAAEAAAAKABEAAAD5/wYAAAAKABEAAAD5/wcAAAAAAA0AAAD5/wgAAAAAAA0AAAD5/wkAAAAKABEAAAD5/woAAAAKABEAAAAFAAEAAAALABEAAAAFAAIAAAAKABEAAAAFAAMAAAAKABEAAAAFAAQAAAAKABEAAAAFAAYAAAAAAA0AAAAFAAcAAAAAAA0AAAAFAAgAAAAKABEAAAAFAAkAAAAKABEAAAAFAAoAAAAKABEAAAAFAAsAAAAAAA0AAAAFAAwAAAAKABEAAAAFAA0AAAAKABEAAAAFAA4AAAAAAA0AAAAFAA8AAAAKABEAAAAGAAMAAAAKABEAAAAHAAMAAAAKABEAAAAIAAMAAAAAAA0AAAAKAAMAAAAKABEAAAAMAAMAAAAKABEAAAANAAMAAAAKABEAAAAOAAYAAAAKABEAAAAOAAcAAAAAAA0AAAAOAAgAAAAKABEAAAAOAAkAAAAAAA0AAAAOAAoAAAAKABEAAAAOAAwAAAAKABEAAAAOAA0AAAAKABEAAAAOAA4AAAAKABEAAAAOAA8AAAAKABEAAAAOABAAAAAAAA0AAAAOABEAAAAKABEAAAAOABIAAAAKABEAAAAOABMAAAALABEAAAANABMAAAAKABEAAAAMABMAAAAKABEAAAALABMAAAAKABEAAAAKABMAAAAKABEAAAAJABMAAAAKABEAAAAIABMAAAAKABEAAAAHABMAAAAKABEAAAAGABMAAAAKABEAAAAFABMAAAALABEAAAAEABMAAAAKABEAAAADABMAAAAKABEAAAACABMAAAAKABEAAAABABMAAAAKABEAAAAAABMAAAAKABEAAAD//xMAAAAKABEAAAD+/xMAAAAKABEAAAD9/xMAAAAKABEAAAD8/xMAAAAKABEAAAD7/xMAAAAKABEAAAD6/xMAAAAKABEAAAD5/xMAAAALABEAAAD5/wsAAAAKABEAAAD5/xIAAAAAAA0AAAD5/xEAAAAAAA0AAAD5/xAAAAAKABEAAAD5/w8AAAAKABEAAAD5/w4AAAAKABEAAAD5/w0AAAAKABEAAAD5/wwAAAAKABEAAAAFABAAAAAKABEAAAD9/xAAAAAKABIAAAD9/w8AAAAKABEAAAD9/w4AAAALABIAAAD+/w4AAAAKABEAAAD//w4AAAAKABEAAAAAAA4AAAAAAA0AAAABAA4AAAALABIAAAABAA8AAAAKABEAAAABABAAAAAKABIAAAALABIAAAAKABIAAAANAAYAAAAAAA0AAAD7/wMAAAAQAAAAAAD6/wMAAAAQAAAAAAAHAAQAAAAQAAAAAAAEAAMAAAAHABYAAAAEAAIAAAAHABYAAAADAAIAAAAEABYAAAADAAMAAAAHABYAAAD+/xAAAAAHABYAAAD//xAAAAAHABYAAAAAABAAAAAHABYAAAAAABEAAAAEABYAAAD//xEAAAAHABYAAAD+/xEAAAAHABYAAAAMABIAAAAHABYAAAAMABEAAAAHABYAAAANABEAAAAHABYAAAANABIAAAAHABYAAAAJAAwAAAAHABYAAAAJAA0AAAAHABYAAAAKAA0AAAAHABYAAAALAA0AAAAHABYAAAALAAwAAAAEABYAAAAKAAwAAAAHABYAAAANAAUAAAAHABYAAAANAAQAAAAHABYAAAAMAAQAAAAHABYAAAAMAAUAAAAEABYAAAD8/w4AAAAHABYAAAD7/w4AAAAHABYAAAD6/w4AAAAEABYAAAACAA4AAAAHABYAAAADAA4AAAAHABYAAAAEAA4AAAAHABYAAAAEAAQAAAAEABYAAAAEAAYAAAAHABYAAAACAAIAAAAHABYAAAABAAIAAAAHABYAAAAAAAIAAAAEABYAAAACABAAAAAHABYAAAADABAAAAAHABYAAAAEABAAAAAHABYAAAAEAA8AAAAHABYAAAADAA8AAAAEABYAAAACAA8AAAAHABYAAAD8/w8AAAAHABYAAAD8/xAAAAAHABYAAAD7/xAAAAAHABYAAAD6/xAAAAAHABYAAAD6/w8AAAAHABYAAAD7/w8AAAAHABYAAAD7/xEAAAAGABYAAAACAAsAAAAGABYAAAD8/wYAAAAFABYAAAD9/w0AAAAFABYAAAAGAA8AAAAFABYAAAAGAA4AAAAFABYAAAANAA4AAAAFABYAAAA=")
 
 [node name="Entities" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Entities" instance=ExtResource("2_ibugp")]
-position = Vector2(-80, 256)
-
-[node name="Enemy2" parent="Entities" instance=ExtResource("2_ibugp")]
-position = Vector2(64, 336)
-
-[node name="Enemy3" parent="Entities" instance=ExtResource("2_ibugp")]
-position = Vector2(-160, 352)
-
-[node name="Enemy4" parent="Entities" instance=ExtResource("2_ibugp")]
-position = Vector2(96, 352)
-
 [node name="GroundSpikes" parent="Entities" instance=ExtResource("6_nt80m")]
-position = Vector2(-144, 256)
+position = Vector2(-128, 320)
 
 [node name="GroundSpikes2" parent="Entities" instance=ExtResource("6_nt80m")]
-position = Vector2(-144, 272)
+position = Vector2(-144, 320)
 
 [node name="GroundSpikes3" parent="Entities" instance=ExtResource("6_nt80m")]
-position = Vector2(-128, 272)
+position = Vector2(-112, 320)
 
 [node name="GroundSpikes4" parent="Entities" instance=ExtResource("6_nt80m")]
-position = Vector2(-128, 256)
+position = Vector2(-208, 256)
 
-[node name="Coin" parent="Entities/GroundSpikes4" instance=ExtResource("5_qsp8v")]
+[node name="GroundSpikes5" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-208, 240)
 
-[node name="GroundSpikes" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(64, 16)
+[node name="GroundSpikes6" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-208, 224)
 
-[node name="GroundSpikes2" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(64, 0)
+[node name="GroundSpikes7" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-208, 208)
 
-[node name="GroundSpikes3" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(80, 16)
+[node name="GroundSpikes8" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-48, 208)
 
-[node name="GroundSpikes4" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(80, 0)
+[node name="GroundSpikes9" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-48, 224)
 
-[node name="GroundSpikes5" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(144, -128)
+[node name="GroundSpikes10" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-48, 240)
 
-[node name="GroundSpikes6" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(160, -128)
+[node name="GroundSpikes11" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-48, 256)
 
-[node name="GroundSpikes7" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(176, -128)
+[node name="GroundSpikes12" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-208, 192)
 
-[node name="GroundSpikes8" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(144, -112)
+[node name="GroundSpikes13" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-48, 192)
 
-[node name="GroundSpikes9" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(144, -96)
+[node name="GroundSpikes14" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-16, 256)
 
-[node name="GroundSpikes10" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(336, -128)
+[node name="GroundSpikes15" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-16, 272)
 
-[node name="GroundSpikes11" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(320, -128)
+[node name="GroundSpikes16" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(-16, 288)
 
-[node name="GroundSpikes12" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(304, -128)
+[node name="GroundSpikes17" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(0, 256)
 
-[node name="GroundSpikes13" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(336, -112)
+[node name="GroundSpikes18" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(0, 272)
 
-[node name="GroundSpikes14" parent="Entities/GroundSpikes4" instance=ExtResource("6_nt80m")]
-position = Vector2(336, -96)
+[node name="GroundSpikes19" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(0, 288)
 
-[node name="Coin2" parent="Entities/GroundSpikes4" instance=ExtResource("5_qsp8v")]
-position = Vector2(256, 0)
+[node name="GroundSpikes20" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(16, 272)
 
-[node name="Coin3" parent="Entities/GroundSpikes4" instance=ExtResource("5_qsp8v")]
-position = Vector2(272, 0)
+[node name="GroundSpikes21" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(16, 288)
 
-[node name="Coin2" parent="Entities" instance=ExtResource("5_qsp8v")]
-position = Vector2(-64, 192)
+[node name="GroundSpikes22" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(16, 256)
 
-[node name="Coin3" parent="Entities" instance=ExtResource("5_qsp8v")]
-position = Vector2(-48, 320)
+[node name="GroundSpikes23" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(96, 288)
 
-[node name="Coin4" parent="Entities" instance=ExtResource("5_qsp8v")]
+[node name="GroundSpikes24" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(96, 272)
+
+[node name="GroundSpikes25" parent="Entities" instance=ExtResource("6_nt80m")]
 position = Vector2(96, 256)
 
+[node name="GroundSpikes26" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(80, 288)
+
+[node name="GroundSpikes27" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(80, 272)
+
+[node name="GroundSpikes28" parent="Entities" instance=ExtResource("6_nt80m")]
+position = Vector2(80, 256)
+
+[node name="Door" parent="Entities" instance=ExtResource("4_3p04p")]
+position = Vector2(-32, 352)
+
+[node name="Key" parent="Entities" node_paths=PackedStringArray("door_to_unlock") instance=ExtResource("5_nt80m")]
+position = Vector2(-128, 320)
+door_to_unlock = NodePath("../Door")
+
+[node name="Enemy" parent="Entities" instance=ExtResource("10_nt80m")]
+position = Vector2(48, 272)
+
+[node name="Enemy2" parent="Entities" instance=ExtResource("10_nt80m")]
+position = Vector2(-160, 256)
+
+[node name="Enemy3" parent="Entities" instance=ExtResource("10_nt80m")]
+position = Vector2(-128, 352)
+
+[node name="Enemy4" parent="Entities" instance=ExtResource("10_nt80m")]
+position = Vector2(-96, 192)
+
+[node name="Coin" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-48, 112)
+
+[node name="Coin2" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-48, 128)
+
+[node name="Coin3" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-64, 112)
+
+[node name="Coin4" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-64, 128)
+
 [node name="Coin5" parent="Entities" instance=ExtResource("5_qsp8v")]
-position = Vector2(112, 256)
+position = Vector2(-176, 320)
 
-[node name="Enemy5" parent="Entities" instance=ExtResource("2_ibugp")]
-position = Vector2(-176, 208)
+[node name="Coin6" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-192, 320)
 
-[node name="Enemy6" parent="Entities" instance=ExtResource("2_ibugp")]
-position = Vector2(64, 208)
+[node name="Coin7" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-144, 240)
+
+[node name="Coin8" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-112, 208)
+
+[node name="Coin9" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-80, 320)
+
+[node name="Coin10" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-64, 320)
+
+[node name="Coin11" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-144, 336)
+
+[node name="Coin12" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-128, 336)
+
+[node name="Coin13" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-112, 336)
+
+[node name="Coin14" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(32, 272)
+
+[node name="Coin15" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(64, 272)
+
+[node name="Coin16" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(96, 144)
+
+[node name="Coin17" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(80, 160)
+
+[node name="Coin18" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(96, 160)
+
+[node name="Coin19" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(80, 144)
+
+[node name="Coin20" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(96, 368)
+
+[node name="Coin21" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(80, 368)
+
+[node name="Coin22" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(80, 352)
+
+[node name="Coin23" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(96, 352)
+
+[node name="SpiderWeb" parent="Entities" instance=ExtResource("8_qsp8v")]
+position = Vector2(-112, 224)
+
+[node name="SpiderWeb2" parent="Entities" instance=ExtResource("8_qsp8v")]
+position = Vector2(-160, 240)
+
+[node name="SpiderWeb3" parent="Entities" instance=ExtResource("8_qsp8v")]
+position = Vector2(-144, 256)
+
+[node name="SpiderWeb4" parent="Entities" instance=ExtResource("8_qsp8v")]
+position = Vector2(-128, 208)
+
+[node name="SpiderWeb5" parent="Entities" instance=ExtResource("8_qsp8v")]
+position = Vector2(-80, 192)
+
+[node name="SpiderWeb6" parent="Entities" instance=ExtResource("8_qsp8v")]
+position = Vector2(-96, 176)
+
+[node name="Coin24" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-80, 176)
+
+[node name="Coin25" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-128, 256)
+
+[node name="Coin26" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-160, 224)
+
+[node name="Coin27" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-128, 192)
+
+[node name="Coin28" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-96, 224)
+
+[node name="SpiderWeb7" parent="Entities" instance=ExtResource("8_qsp8v")]
+position = Vector2(-16, 192)
+
+[node name="SpiderWeb8" parent="Entities" instance=ExtResource("8_qsp8v")]
+position = Vector2(0, 192)
+
+[node name="SpiderWeb9" parent="Entities" instance=ExtResource("8_qsp8v")]
+position = Vector2(64, 352)
+
+[node name="SpiderWeb10" parent="Entities" instance=ExtResource("8_qsp8v")]
+position = Vector2(80, 176)
+
+[node name="Enemy5" parent="Entities" instance=ExtResource("10_nt80m")]
+position = Vector2(80, 176)
+
+[node name="Enemy6" parent="Entities" instance=ExtResource("10_nt80m")]
+position = Vector2(64, 352)
+
+[node name="Enemy7" parent="Entities" instance=ExtResource("10_nt80m")]
+position = Vector2(48, 240)
+
+[node name="Coin29" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(32, 288)
+
+[node name="Coin30" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(64, 288)
+
+[node name="Coin31" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(48, 288)
+
+[node name="SpiderWeb11" parent="Entities" instance=ExtResource("8_qsp8v")]
+position = Vector2(-208, 368)
+
+[node name="Coin32" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-208, 368)
+
+[node name="Coin33" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-208, 352)
+
+[node name="Coin34" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-192, 368)
+
+[node name="Coin35" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(-128, 224)
+
+[node name="SpiderWeb12" parent="Entities" instance=ExtResource("8_qsp8v")]
+position = Vector2(-160, 352)
+
+[node name="SpiderWeb13" parent="Entities" instance=ExtResource("8_qsp8v")]
+position = Vector2(-96, 352)
+
+[node name="Coin36" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(48, 192)
+
+[node name="Coin37" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(48, 208)
+
+[node name="Coin38" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(64, 192)
+
+[node name="Coin39" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(32, 192)
+
+[node name="Coin40" parent="Entities" instance=ExtResource("5_qsp8v")]
+position = Vector2(48, 176)
 
 [node name="LevelDoors" type="Node2D" parent="."]
 
@@ -128,7 +310,7 @@ position = Vector2(-208, 112)
 texture = SubResource("AtlasTexture_qsp8v")
 
 [node name="Exit" type="Area2D" parent="LevelDoors" groups=["ExitDoor"]]
-position = Vector2(112, 128)
+position = Vector2(-16, 144)
 script = ExtResource("8_3p04p")
 
 [node name="Stairs" type="Sprite2D" parent="LevelDoors/Exit"]

@@ -28,14 +28,14 @@ var available_directions: Array[String] = []
 
 signal directions_available(directions: Array[String])
 
+
 func Enter():
-	print(turn_manager)
 	tiles_to_move = turn_manager.tiles_to_move
 	tiles_left = turn_manager.tiles_to_move
 	movement_dir = turn_manager.movement_dir
 	movement_type = MOVEMENT_TYPES.DIAGONAL if tiles_to_move % 2 == 1 else MOVEMENT_TYPES.CARDINAL
 	_emit_available_directions()
-	print("Enter Movement, ttm, tl, md, mt", tiles_to_move, tiles_left, movement_dir, movement_type)
+	GlobalEmitter.emit('player_movement_start', [tiles_to_move])
 	
 func Update(_delta: float):
 	if movement_type == MOVEMENT_TYPES.CARDINAL and !is_moving:
@@ -133,11 +133,13 @@ func move_player_one_unit(moving_dir: Vector2):
 	tiles_left -= 1
 	await player.move_one_unit(moving_dir)
 	var stop_movement = await player.resolve_grid_space()
+	GlobalEmitter.emit('player_moved_one_unit', [moving_dir])
 	return stop_movement
 	
 func _end_movement_phase():
 	print("movement over")
 	is_moving = false
+	GlobalEmitter.emit('player_movement_end')
 	Transitioned.emit(self, "Roll")
 
 func _emit_available_directions():

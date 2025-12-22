@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1v64o1eov673"]
+
+[ext_resource type="Script" uid="uid://bfbscuit77vle" path="res://scripts/spider_web.gd" id="1_dxjea"]
+[ext_resource type="Texture2D" uid="uid://djjesrwansg2r" path="res://assets/tilesets/colored-transparent_packed.png" id="2_4jtdv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylerd"]
+atlas = ExtResource("2_4jtdv")
+region = Rect2(32, 352, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jtdv"]
+size = Vector2(10, 10)
+
+[node name="SpiderWeb" type="Area2D"]
+script = ExtResource("1_dxjea")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.6754862, 0.80208987, 0.8699321, 1)
+texture = SubResource("AtlasTexture_ylerd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_4jtdv")

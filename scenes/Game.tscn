@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://balqyl3r1p3fx"]
+[gd_scene load_steps=10 format=3 uid="uid://balqyl3r1p3fx"]
 
 [ext_resource type="PackedScene" uid="uid://ccagt5in31u65" path="res://scenes/ui/main_game_ui.tscn" id="1_kiw3p"]
 [ext_resource type="Script" uid="uid://beolpfc45v6r3" path="res://scripts/turn_manager.gd" id="2_78awf"]
 [ext_resource type="PackedScene" uid="uid://c4ut5cvrpoxki" path="res://scenes/Player.tscn" id="3_kiw3p"]
 [ext_resource type="Script" uid="uid://5i0bx1rj5e2i" path="res://scripts/roll.gd" id="3_s0nni"]
 [ext_resource type="Script" uid="uid://cnj0e4jctobpn" path="res://scripts/move.gd" id="4_aug50"]
+[ext_resource type="PackedScene" uid="uid://govtuyxti3sf" path="res://scenes/levels/level_0.tscn" id="5_400sg"]
 [ext_resource type="PackedScene" uid="uid://dpiq84u6v4ak7" path="res://scenes/levels/level_1.tscn" id="6_400sg"]
 [ext_resource type="PackedScene" uid="uid://cjgy1tlehictf" path="res://scenes/Player_Camera.tscn" id="8_g4kob"]
 
@@ -38,7 +39,8 @@ player = NodePath("../../World/Player")
 
 [node name="World" type="Node" parent="."]
 
-[node name="Level" parent="World" instance=ExtResource("6_400sg")]
+[node name="Level" parent="World" instance=ExtResource("5_400sg")]
+exit_to_floor = ExtResource("6_400sg")
 
 [node name="Camera2D" parent="World" groups=["Camera"] instance=ExtResource("8_g4kob")]
 position = Vector2(48, -32)
