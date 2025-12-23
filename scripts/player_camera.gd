@@ -10,7 +10,8 @@ var ui_width_offset := 0.0
 func _ready() -> void:
 	if main_ui:
 		ui_width_offset = main_ui.size.x / 2.0
-	set_camera_limits(level.get_node('TileMapLayer'))
+	if level:
+		set_camera_limits(level.get_node('TileMapLayer'))
 
 func set_camera_limits(tile_map: TileMapLayer) -> void:
 	if tile_map:

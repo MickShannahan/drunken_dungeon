@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dpiq84u6v4ak7" path="res://scenes/levels/level_1.tscn" id="6_400sg"]
 [ext_resource type="PackedScene" uid="uid://cjgy1tlehictf" path="res://scenes/Player_Camera.tscn" id="8_g4kob"]
 [ext_resource type="Shader" uid="uid://d1vkcoypc05dk" path="res://shaders/ChromaAbr.gdshader" id="9_g4kob"]
-[ext_resource type="Script" uid="uid://djorhmktt5nyu" path="res://scenes/shaders.gd" id="9_qy1jj"]
+[ext_resource type="Script" uid="uid://djorhmktt5nyu" path="res://shaders/shaders.gd" id="9_qy1jj"]
 
 [sub_resource type="GDScript" id="GDScript_s0nni"]
 script/source = "extends Node2D
@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qy1jj"]
 shader = ExtResource("9_g4kob")
-shader_parameter/aberration_x = 0.006000047784999962
+shader_parameter/aberration_x = 0.00600004778499996
 shader_parameter/aberration_y = 4.7499999933364734e-08
 shader_parameter/aberration_strength = 1.0
 shader_parameter/enable_fisheye = true
@@ -43,8 +43,6 @@ shader_parameter/glow_intensity = 0.3750000178125
 shader_parameter/glow_blur_strength = 0.1150000054625
 
 [node name="Game" type="Node2D"]
-
-[node name="MainGameUi" parent="." instance=ExtResource("1_kiw3p")]
 
 [node name="TurnManager" type="Node" parent="." node_paths=PackedStringArray("initial_phase")]
 script = ExtResource("2_78awf")
@@ -71,6 +69,15 @@ script = SubResource("GDScript_s0nni")
 
 [node name="Player" parent="World" instance=ExtResource("3_kiw3p")]
 position = Vector2(-208, -16)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainGameUi" parent="UI" instance=ExtResource("1_kiw3p")]
+layout_mode = 1
 
 [node name="Shaders" type="Node" parent="."]
 script = ExtResource("9_qy1jj")

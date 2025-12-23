@@ -11,8 +11,8 @@ var show_roll_icon := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	ui for movement arrows
+	hide_roll_number()
 	_get_ui_node_arrows()
-	show_arrows(["up_left", "down", "down_right"])
 	GlobalUi.draw_player_arrows.connect(show_arrows)
 	GlobalUi.clear_player_arrows.connect(clear_arrows)
 #	connect roll ui

@@ -87,7 +87,7 @@ func resolve_grid_space():
 	for entity in enities:
 		var stop_resolve = entity.activate(self)
 		if stop_resolve: return true
-		await get_tree().create_timer(.15).timeout
+		await get_tree().create_timer(.05).timeout
 	await get_tree().create_timer(.05).timeout
 		
 
@@ -112,7 +112,7 @@ func drip_blood():
 	
 func make_dust(dir:Vector2):
 	var dust_instance : CPUParticles2D = dust_effect.instantiate()
-	get_tree().get_first_node_in_group('Level').add_child(dust_instance)
+	add_child(dust_instance)
 	dust_instance.global_position = global_position
 	dust_instance.direction = dir * -1
 	
